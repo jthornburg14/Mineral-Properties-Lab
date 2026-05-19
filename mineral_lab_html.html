@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mineral Properties Lab — Physical Geology 2001</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f4f4f0;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:780px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:22px;font-weight:600;margin-bottom:4px}
+.subtitle{font-size:13px;color:#666;margin-bottom:20px}
+.subtitle a{color:#1a6fbf;text-decoration:none}
+.subtitle a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+nav button{padding:6px 12px;font-size:12px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer;color:#333;transition:all .15s}
+nav button:hover{border-color:#1a6fbf;color:#1a6fbf}
+nav button.active{background:#e8f0fb;border-color:#1a6fbf;color:#1a6fbf;font-weight:500}
+.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:20px 22px;margin-bottom:12px}
+h2{font-size:18px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.intro{font-size:14px;line-height:1.7;color:#444;margin-bottom:14px}
+.criterion{display:flex;gap:10px;padding:10px 12px;background:#f7f7f5;border-radius:6px;border-left:3px solid #1a6fbf;margin-bottom:6px;border-top-left-radius:0;border-bottom-left-radius:0}
+.cnum{min-width:22px;height:22px;border-radius:50%;background:#e8f0fb;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#1a6fbf;flex-shrink:0}
+.clabel{font-size:13px;font-weight:600;margin-bottom:2px}
+.cdesc{font-size:12px;color:#555}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:14px}
+.lcard{padding:10px 12px;background:#f7f7f5;border-radius:8px;border-top:3px solid #888}
+.lname{font-size:13px;font-weight:600;margin-bottom:4px}
+.ldesc{font-size:12px;color:#555;line-height:1.5;margin-bottom:4px}
+.lexample{font-size:11px;color:#888}
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.slider-row label{font-size:13px;color:#555;white-space:nowrap}
+.slider-row input{flex:1;accent-color:#1a6fbf}
+.slider-row span{font-size:14px;font-weight:600;min-width:28px;text-align:right}
+.hrow{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:6px;margin-bottom:4px;font-size:13px}
+.hrow.normal{background:#f7f7f5}
+.hrow.tool{background:#fff8e8;border:1px solid #f0c040}
+.hmin{font-weight:600}
+.htool-badge{font-size:10px;color:#a06000;background:#fff3c0;padding:2px 7px;border-radius:4px}
+.hnote{font-size:11px;color:#888}
+.hnum{font-size:12px;color:#666;font-weight:500}
+.streak-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:10px}
+.scard{padding:10px 12px;background:#f7f7f5;border-radius:8px}
+.smin{font-size:13px;font-weight:600;margin-bottom:5px}
+.ssurface{font-size:12px;color:#555;margin-bottom:5px}
+.streak-row{display:flex;align-items:center;gap:6px}
+.swatch{width:18px;height:18px;border-radius:3px;border:1px solid #ccc;flex-shrink:0}
+.streaktext{font-size:12px}
+.note{font-size:12px;color:#555;background:#f7f7f5;padding:8px 12px;border-radius:6px;margin-top:8px;line-height:1.6}
+.proprow{display:flex;gap:12px;padding:10px 12px;background:#f7f7f5;border-radius:8px;margin-bottom:6px}
+.propicon{font-size:20px;flex-shrink:0;margin-top:2px}
+.propname{font-size:13px;font-weight:600;margin-bottom:2px}
+.propdesc{font-size:12px;color:#555;line-height:1.6}
+.template-list{padding:10px 14px;background:#f7f7f5;border-radius:8px;margin-bottom:12px}
+.tl-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.tl-item{font-size:13px;color:#444;margin-bottom:4px;display:flex;gap:8px}
+.tl-num{color:#1a6fbf;font-weight:600}
+.example-box{padding:10px 14px;background:#edf7ed;border:1px solid #b2dfb2;border-radius:8px;margin-bottom:16px;font-size:13px}
+.ex-title{font-weight:600;color:#2a6a2a;margin-bottom:6px}
+.ex-line{color:#444;line-height:1.7;margin-bottom:2px}
+.profile-block{border:1px solid #ddd;border-radius:10px;padding:14px;margin-bottom:12px}
+.pb-title{font-size:14px;font-weight:600;margin-bottom:10px}
+.field-label{font-size:12px;color:#555;display:block;margin-bottom:4px;margin-top:6px}
+select,textarea,input[type=text]{width:100%;font-size:13px;border:1px solid #ccc;border-radius:6px;padding:7px 10px;font-family:inherit;color:#1a1a1a;background:#fff;margin-bottom:4px;resize:vertical}
+select:focus,textarea:focus,input[type=text]:focus{outline:2px solid #1a6fbf;border-color:#1a6fbf}
+.quiz-section{margin-top:16px;border-top:1px solid #eee;padding-top:16px}
+.quiz-label{font-size:12px;font-weight:600;color:#555;margin-bottom:8px}
+.quiz-q{font-size:14px;margin-bottom:10px;line-height:1.6}
+.opt{width:100%;text-align:left;padding:8px 12px;font-size:13px;background:#f7f7f5;border:1px solid #ddd;border-radius:6px;cursor:pointer;margin-bottom:5px;display:flex;justify-content:space-between;align-items:center;font-family:inherit;color:#1a1a1a;transition:background .1s}
+.opt:hover:not(:disabled){background:#e8f0fb;border-color:#1a6fbf}
+.opt.correct{background:#edf7ed;border-color:#4caf50}
+.opt.wrong{background:#fdecea;border-color:#e53935}
+.expl{font-size:12px;margin:2px 0 6px 12px;line-height:1.5}
+.expl.good{color:#2a6a2a}
+.expl.bad{color:#b71c1c}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.pager button{padding:7px 16px;font-size:13px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer;color:#333;transition:all .15s}
+.pager button:hover:not(:disabled){border-color:#1a6fbf;color:#1a6fbf}
+.pager button:disabled{opacity:0.35;cursor:not-allowed}
+.pgcount{font-size:12px;color:#888}
+/* flowchart SVG styles */
+.fc-wrap{overflow-x:auto;margin-bottom:14px;padding-bottom:4px}
+/* cleavage table */
+.cl-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
+.cl-table th{background:#e8f0fb;padding:8px 10px;text-align:left;font-weight:600;border:1px solid #c5d8f0}
+.cl-table td{padding:8px 10px;border:1px solid #ddd;vertical-align:top;line-height:1.5}
+.cl-table tr:nth-child(even) td{background:#f7f7f5}
+.cl-planes{font-weight:600;color:#1a6fbf}
+/* export bar */
+.export-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:10px 16px;display:flex;justify-content:center;gap:12px;align-items:center;z-index:100}
+.export-bar span{font-size:13px;color:#555}
+.btn-export{padding:8px 20px;font-size:13px;font-weight:600;background:#1a6fbf;color:#fff;border:none;border-radius:6px;cursor:pointer;transition:background .15s}
+.btn-export:hover{background:#145a9e}
+.student-name{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:7px 10px;width:200px}
+.save-note{font-size:11px;color:#aaa;text-align:center;margin-top:6px}
+.tip{font-size:12px;color:#2a6a2a;background:#edf7ed;padding:8px 12px;border-radius:0 6px 6px 0;border-left:3px solid #4caf50;margin-top:8px;line-height:1.6}
+.section-divider{font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;margin:14px 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Mineral Properties Lab</h1>
+<p class="subtitle">Physical Geology 2001 &nbsp;·&nbsp; Use alongside the <a href="http://profharwood.x10host.com/GEOL101/Labs/Minerals/Min01.htm" target="_blank">Mineral ID website ↗</a></p>
+
+<div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px 14px;margin-bottom:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+  <label style="font-size:13px;color:#555;white-space:nowrap">Your name:</label>
+  <input type="text" id="studentName" placeholder="Enter your name" style="width:220px;margin-bottom:0">
+  <span style="font-size:12px;color:#aaa">Used on your exported submission file</span>
+</div>
+
+<nav id="nav"></nav>
+<div id="content"></div>
+<div class="pager">
+  <button id="prev">← Previous</button>
+  <span class="pgcount" id="pgcount"></span>
+  <button id="next">Next →</button>
+</div>
+<div style="height:60px"></div>
+</div>
+
+<div class="export-bar">
+  <span>When finished:</span>
+  <button class="btn-export" onclick="exportWork()">⬇ Download my work</button>
+  <span style="font-size:12px;color:#aaa">Saves all quiz answers, observations, and mineral profiles as a .txt file</span>
+</div>
+
+<script>
+const MINERALS = ["Apatite","Augite","Biotite","Calcite","Corundum","Dolomite","Fluorite","Galena","Garnet","Graphite","Gypsum","Halite","Hematite","Hornblende","Magnetite","Muscovite","Olivine","Orthoclase","Plagioclase","Pyrite","Quartz","Sulfur","Talc"];
+const SAMPLES = [1,2,3,4,6,9,10,11,12,13,14,16,17,18,19];
+
+const LUSTER_TYPES = ["Metallic","Vitreous / Glassy","Pearly / Silky","Earthy / Dull","Greasy / Waxy"];
+
+let current = 0;
+const quizAnswers = {};
+let hardnessVal = 3;
+
+// persistent state for student work
+const work = {
+  lusterGuesses: {}, // sample# -> value
+  cleavageGuesses: {}, // sample# -> value
+  observations: {}, // sample# -> text
+  profile1: {mineral:"",props:"",uses:"",connection:""},
+  profile2: {mineral:"",props:"",uses:"",connection:""},
+  quizAnswers: {},
+};
+
+function saveField(key, subkey, val) {
+  if(subkey !== undefined) work[key][subkey] = val;
+  else work[key] = val;
+}
+
+const SECTIONS = [
+{id:"intro",title:"What is a mineral?",icon:"🪨"},
+{id:"luster",title:"Luster",icon:"✨"},
+{id:"hardness",title:"Hardness",icon:"🔨"},
+{id:"streak",title:"Streak",icon:"✏️"},
+{id:"cleavage",title:"Cleavage & fracture",icon:"💎"},
+{id:"special",title:"Other properties",icon:"🔬"},
+{id:"flowchart",title:"Identification flowchart",icon:"🗂️"},
+{id:"profile",title:"Mineral uses profile",icon:"🌍"},
+];
+
+function buildNav(){
+  const nav=document.getElementById("nav");
+  nav.innerHTML="";
+  SECTIONS.forEach((s,i)=>{
+    const b=document.createElement("button");
+    b.textContent=s.icon+" "+s.title;
+    if(i===current)b.classList.add("active");
+    b.onclick=()=>{saveCurrent();current=i;render();};
+    nav.appendChild(b);
+  });
+}
+
+function saveCurrent(){
+  // profile fields
+  [1,2].forEach(n=>{
+    ["mineral","props","uses","connection"].forEach(f=>{
+      const el=document.getElementById(`p${f}${n}`);
+      if(el) work[`profile${n}`][f]=el.value;
+    });
+  });
+  // observation fields
+  SAMPLES.forEach(s=>{
+    const ol=document.getElementById(`obs_luster_${s}`);
+    const oc=document.getElementById(`obs_cleave_${s}`);
+    const oo=document.getElementById(`obs_other_${s}`);
+    if(ol) work.lusterGuesses[s]=ol.value;
+    if(oc) work.cleavageGuesses[s]=oc.value;
+    if(oo) work.observations[s]=oo.value;
+  });
+  const sn=document.getElementById("studentName");
+}
+
+function quizHTML(secId, q){
+  const chosen=work.quizAnswers[secId];
+  const revealed=chosen!==undefined;
+  let html=`<div class="quiz-section"><div class="quiz-label">❓ Check your understanding</div><div class="quiz-q">${q.q}</div>`;
+  q.opts.forEach((opt,i)=>{
+    let cls="opt";
+    let mark="";
+    if(revealed){
+      if(i===q.ans){cls+=" correct";mark=" ✓";}
+      else if(i===chosen){cls+=" wrong";mark=" ✗";}
+    }
+    html+=`<button class="${cls}" onclick="answerQuiz('${secId}',${i})" ${revealed?"disabled":""}>${opt}${mark}</button>`;
+    if(revealed&&i===chosen){
+      html+=`<div class="expl ${i===q.ans?'good':'bad'}">${q.expl[i]}</div>`;
+    }
+    if(revealed&&i!==chosen&&i===q.ans){
+      html+=`<div class="expl good">${q.expl[i]}</div>`;
+    }
+  });
+  return html+"</div>";
+}
+
+function answerQuiz(secId,idx){
+  work.quizAnswers[secId]=idx;
+  render();
+}
+window.answerQuiz=answerQuiz;
+window.updateH=function(v){
+  hardnessVal=parseFloat(v);
+  document.getElementById("hval").textContent=v;
+  renderHList();
+};
+
+function renderHList(){
+  const scale=[
+    {h:1,mineral:"Talc",note:"Scratched by fingernail easily",tool:false},
+    {h:2,mineral:"Gypsum",note:"Scratched by fingernail",tool:false},
+    {h:2.5,mineral:"Fingernail",note:"Common field tool",tool:true},
+    {h:3,mineral:"Calcite",note:"",tool:false},
+    {h:3.5,mineral:"Penny (copper)",note:"Common field tool",tool:true},
+    {h:4,mineral:"Fluorite",note:"",tool:false},
+    {h:4.5,mineral:"Iron nail",note:"Common field tool",tool:true},
+    {h:5,mineral:"Apatite",note:"",tool:false},
+    {h:5.5,mineral:"Glass plate",note:"Common field tool",tool:true},
+    {h:6,mineral:"Orthoclase",note:"",tool:false},
+    {h:6.5,mineral:"Streak plate",note:"Field tool — hardness limit for streak tests",tool:true},
+    {h:7,mineral:"Quartz",note:"",tool:false},
+    {h:8,mineral:"Topaz",note:"",tool:false},
+    {h:9,mineral:"Corundum",note:"",tool:false},
+    {h:10,mineral:"Diamond",note:"Hardest natural mineral",tool:false},
+  ];
+  const nearby=scale.filter(s=>Math.abs(s.h-hardnessVal)<=0.5);
+  const el=document.getElementById("hlist");
+  if(!el)return;
+  if(!nearby.length){el.innerHTML=`<div class="note">Move the slider to explore the scale.</div>`;return;}
+  el.innerHTML=nearby.map(s=>`<div class="hrow ${s.tool?'tool':'normal'}">
+    <span class="hmin">${s.mineral}</span>
+    <div style="display:flex;gap:8px;align-items:center">
+      ${s.tool?`<span class="htool-badge">field tool</span>`:""}
+      ${s.note?`<span class="hnote">${s.note}</span>`:""}
+      <span class="hnum">Mohs ${s.h}</span>
+    </div></div>`).join("");
+}
+
+function sectionHTML(id){
+  if(id==="intro") return introHTML();
+  if(id==="luster") return lusterHTML();
+  if(id==="hardness") return hardnessHTML();
+  if(id==="streak") return streakHTML();
+  if(id==="cleavage") return cleavageHTML();
+  if(id==="special") return specialHTML();
+  if(id==="flowchart") return flowchartHTML();
+  if(id==="profile") return profileHTML();
+  return "";
+}
+
+function introHTML(){
+  const criteria=[
+    {label:"Naturally occurring",desc:"Forms by natural geologic processes — not made in a lab."},
+    {label:"Solid",desc:"Must be solid and crystalline at normal Earth conditions. Ice is a mineral; liquid water is not."},
+    {label:"Orderly atomic structure",desc:"Atoms arranged in a repeating, predictable pattern. No pattern = amorphous (e.g., opal)."},
+    {label:"Defined chemical composition",desc:"Each mineral has a unique formula, like quartz (SiO₂). Changing the ratio creates a different mineral."},
+    {label:"Typically inorganic",desc:"Not produced by living organisms — though carbonate minerals in shells are an exception."},
+  ];
+  const quiz={q:"Which of these is a TRUE mineral?",opts:["Rock candy","Cubic zirconia","Halite (NaCl)","Olive oil"],ans:2,
+    expl:["Rock candy is crystalline sugar — organic and not naturally occurring geologically.",
+          "Cubic zirconia is lab-made, failing the 'naturally occurring' criterion.",
+          "Correct! Halite satisfies all five criteria: naturally occurring, solid, crystalline, defined formula (NaCl), and inorganic.",
+          "Olive oil is liquid and organic — fails multiple criteria."]};
+  let h=`<div class="card"><h2>🪨 What is a mineral?</h2>
+  <p class="intro">A mineral must satisfy all five criteria below. If even one is missing, it is not a true mineral.</p>`;
+  criteria.forEach((c,i)=>{
+    h+=`<div class="criterion"><div class="cnum">${i+1}</div><div><div class="clabel">${c.label}</div><div class="cdesc">${c.desc}</div></div></div>`;
+  });
+  h+=quizHTML("intro",quiz)+"</div>";
+  return h;
+}
+
+function lusterHTML(){
+  const lusters=[
+    {name:"Metallic",desc:"Looks like polished metal or a new coin.",example:"Pyrite, Galena, Magnetite",color:"#aaa"},
+    {name:"Vitreous / Glassy",desc:"Looks like broken glass — bright and sharp.",example:"Quartz, Fluorite",color:"#85B7EB"},
+    {name:"Pearly / Silky",desc:"Soft sheen like the inside of a shell or silk fabric.",example:"Gypsum, Muscovite",color:"#e8b4c8"},
+    {name:"Earthy / Dull",desc:"No reflectivity — looks like dry soil or clay.",example:"Kaolinite, Limonite",color:"#c8b89a"},
+    {name:"Greasy / Waxy",desc:"Looks slick or melted — like a candle or cooking fat.",example:"Talc, Chalcedony",color:"#b8d89a"},
+  ];
+  const quiz={q:"A mineral looks like a chunk of metal and reflects light like a new coin. What luster type is this?",
+    opts:["Vitreous","Metallic","Pearly","Earthy"],ans:1,
+    expl:["Vitreous luster looks like glass, not metal.","Correct! If it looks like a chunk of metal, it has metallic luster.",
+          "Pearly luster has a soft iridescent sheen — not a strong metallic reflection.","Earthy luster has no reflectivity at all."]};
+  let h=`<div class="card"><h2>✨ Luster</h2>
+  <p class="intro">Luster describes how light reflects off a mineral's surface. It is the first and most important step in mineral identification — always start here.</p>
+  <div class="grid2">`;
+  lusters.forEach(l=>{
+    h+=`<div class="lcard" style="border-top-color:${l.color}"><div class="lname">${l.name}</div><div class="ldesc">${l.desc}</div><div class="lexample">e.g. ${l.example}</div></div>`;
+  });
+  h+=`</div>`;
+
+  // Luster identification flowchart SVG
+  h+=`<div class="section-divider">Luster identification flowchart</div>
+  <div class="fc-wrap">
+  <svg width="700" height="200" viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+    <defs><marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
+    <!-- Start -->
+    <rect x="260" y="10" width="180" height="36" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">Observe the mineral</text>
+    <!-- Arrow down -->
+    <line x1="350" y1="46" x2="350" y2="66" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- Decision diamond -->
+    <polygon points="350,68 480,104 350,140 220,104" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="99" text-anchor="middle" font-size="12" font-weight="600" fill="#7a5000">Does it look</text>
+    <text x="350" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#7a5000">like metal?</text>
+    <!-- YES right -->
+    <line x1="480" y1="104" x2="570" y2="104" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="522" y="98" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="572" y="84" width="120" height="40" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="632" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#2a6a2a">METALLIC</text>
+    <text x="632" y="120" text-anchor="middle" font-size="10" fill="#2a6a2a">→ Table 2.2A</text>
+    <!-- NO left -->
+    <line x1="220" y1="104" x2="130" y2="104" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="178" y="98" text-anchor="middle" font-size="11" fill="#b71c1c">NO</text>
+    <rect x="8" y="84" width="120" height="56" rx="6" fill="#fdecea" stroke="#e53935" stroke-width="1.5"/>
+    <text x="68" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#b71c1c">NON-METALLIC</text>
+    <text x="68" y="120" text-anchor="middle" font-size="10" fill="#b71c1c">Vitreous, Earthy,</text>
+    <text x="68" y="133" text-anchor="middle" font-size="10" fill="#b71c1c">Pearly, Greasy, Waxy</text>
+    <!-- down from diamond -->
+    <line x1="350" y1="140" x2="350" y2="160" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+    <rect x="230" y="162" width="240" height="30" rx="6" fill="#f7f7f5" stroke="#ccc" stroke-width="1"/>
+    <text x="350" y="181" text-anchor="middle" font-size="12" fill="#444">→ Continue to hardness check</text>
+  </svg></div>`;
+
+  h+=quizHTML("luster",quiz)+"</div>";
+  return h;
+}
+
+function hardnessHTML(){
+  const quiz={q:"You scratch a mineral with your fingernail — no scratch. Then with a penny — the mineral powders. What is the hardness?",
+    opts:["Less than 2.5","Between 2.5 and 3.5","Between 3.5 and 5.5","Greater than 5.5"],ans:1,
+    expl:["If less than 2.5, your fingernail would have scratched it.",
+          "Correct! Resisted fingernail (2.5) but scratched by penny (3.5) — hardness is between those values.",
+          "If harder than 3.5, the penny wouldn't scratch it.","If harder than 5.5, even glass wouldn't scratch it."]};
+  let h=`<div class="card"><h2>🔨 Hardness</h2>
+  <p class="intro">Hardness is a mineral's resistance to being <strong>scratched</strong> — NOT its resistance to breaking. Measured on the Mohs scale (1–10). A harder mineral always scratches a softer one. Drag the slider to explore the scale.</p>
+
+  <div class="section-divider">Mohs hardness decision flowchart</div>
+  <div class="fc-wrap">
+  <svg width="700" height="260" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+    <defs><marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
+    <rect x="250" y="8" width="200" height="34" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">Scratch with fingernail (2.5)</text>
+    <line x1="350" y1="42" x2="350" y2="62" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <polygon points="350,64 460,94 350,124 240,94" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="89" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Scratched?</text>
+    <text x="350" y="103" text-anchor="middle" font-size="10" fill="#7a5000">(powder on mineral)</text>
+    <!-- YES left = softer than 2.5 -->
+    <line x1="240" y1="94" x2="130" y2="94" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="185" y="88" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="10" y="74" width="118" height="40" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="69" y="96" text-anchor="middle" font-size="12" font-weight="600" fill="#2a6a2a">Hardness &lt; 2.5</text>
+    <text x="69" y="110" text-anchor="middle" font-size="10" fill="#444">e.g. Talc, Gypsum</text>
+    <!-- NO right = scratch with penny -->
+    <line x1="460" y1="94" x2="560" y2="94" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="508" y="88" text-anchor="middle" font-size="11" fill="#b71c1c">NO</text>
+    <rect x="562" y="78" width="130" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="627" y="99" text-anchor="middle" font-size="12" font-weight="600" fill="#1a6fbf">Try penny (3.5)</text>
+    <!-- arrow down from penny box -->
+    <line x1="627" y1="110" x2="627" y2="132" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <polygon points="627,134 715,158 627,182 539,158" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="627" y="153" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Scratched?</text>
+    <text x="627" y="167" text-anchor="middle" font-size="10" fill="#7a5000"></text>
+    <!-- YES from penny = 2.5-3.5 -->
+    <line x1="627" y1="182" x2="627" y2="210" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <rect x="557" y="212" width="140" height="40" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="627" y="232" text-anchor="middle" font-size="11" font-weight="600" fill="#2a6a2a">Hardness 2.5 – 3.5</text>
+    <text x="627" y="246" text-anchor="middle" font-size="10" fill="#444">e.g. Calcite</text>
+    <text x="657" y="196" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <!-- NO from penny = try glass -->
+    <line x1="539" y1="158" x2="430" y2="158" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="487" y="152" text-anchor="middle" font-size="11" fill="#b71c1c">NO</text>
+    <rect x="310" y="142" width="118" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="369" y="163" text-anchor="middle" font-size="12" font-weight="600" fill="#1a6fbf">Try glass (5.5)</text>
+    <line x1="369" y1="174" x2="369" y2="196" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <!-- yes/no from glass -->
+    <rect x="270" y="198" width="100" height="40" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="320" y="218" text-anchor="middle" font-size="10" font-weight="600" fill="#2a6a2a">Scratched?</text>
+    <text x="320" y="230" text-anchor="middle" font-size="9" fill="#444">H = 3.5 – 5.5</text>
+    <text x="354" y="192" text-anchor="middle" font-size="10" fill="#2a6a2a">YES</text>
+    <rect x="150" y="198" width="110" height="40" rx="6" fill="#fdecea" stroke="#e53935" stroke-width="1.5"/>
+    <text x="205" y="218" text-anchor="middle" font-size="10" font-weight="600" fill="#b71c1c">Not scratched?</text>
+    <text x="205" y="230" text-anchor="middle" font-size="9" fill="#444">H &gt; 5.5</text>
+    <line x1="270" y1="218" x2="262" y2="218" stroke="#666" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="240" y="212" text-anchor="middle" font-size="10" fill="#b71c1c">NO</text>
+  </svg></div>
+
+  <div class="slider-row"><label>Explore Mohs scale</label><input type="range" min="1" max="10" step="0.5" value="${hardnessVal}" id="hslider" oninput="updateH(this.value)"><span id="hval">${hardnessVal}</span></div>
+  <div id="hlist"></div>
+  <p class="note" style="margin-top:8px">Drag the slider to explore. Yellow rows are common field tools.</p>`;
+  h+=quizHTML("hardness",quiz)+"</div>";
+  return h;
+}
+
+function streakHTML(){
+  const examples=[
+    {mineral:"Hematite",surface:"Dark gray or metallic red",streak:"Red-brown (rust)",color:"#b5451b"},
+    {mineral:"Pyrite",surface:"Brassy yellow (fool's gold)",streak:"Greenish gray-black",color:"#3a3a2a"},
+    {mineral:"Magnetite",surface:"Black, metallic",streak:"Black",color:"#222"},
+    {mineral:"Calcite",surface:"White or colorless",streak:"White — non-diagnostic",color:"#e0e0e0"},
+  ];
+  const quiz={q:"A mineral looks gold and metallic. Its streak is greenish gray-black. What is it most likely to be?",
+    opts:["Gold","Pyrite","Hematite","Calcite"],ans:1,
+    expl:["Real gold has a yellow streak matching its surface color and is very soft.",
+          "Correct! Pyrite (fool's gold) looks gold but leaves a greenish gray-black streak — a classic diagnostic test.",
+          "Hematite leaves a distinctive red-brown streak.","Calcite is white and non-metallic."]};
+  let h=`<div class="card"><h2>✏️ Streak</h2>
+  <p class="intro">Streak is the color of a mineral's powder when rubbed on an unglazed porcelain streak plate. The powder color is often very different from the mineral's surface color — making streak a more reliable diagnostic property.</p>
+  <div class="streak-grid">`;
+  examples.forEach(e=>{
+    h+=`<div class="scard"><div class="smin">${e.mineral}</div><div class="ssurface">Surface: ${e.surface}</div>
+    <div class="streak-row"><div class="swatch" style="background:${e.color}"></div><span class="streaktext">Streak: ${e.streak}</span></div></div>`;
+  });
+  h+=`</div><div class="note">ℹ️ The streak plate has a hardness of 6.5. Minerals harder than 6.5 will scratch the plate rather than leaving a streak, so streak is less useful for very hard minerals.</div>`;
+
+  // Streak flowchart
+  h+=`<div class="section-divider">Streak color decision flowchart</div>
+  <div class="fc-wrap">
+  <svg width="700" height="190" viewBox="0 0 700 190" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+    <defs><marker id="arr3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
+    <rect x="240" y="8" width="220" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="29" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">Rub mineral on streak plate</text>
+    <line x1="350" y1="40" x2="350" y2="60" stroke="#666" stroke-width="1.5" marker-end="url(#arr3)"/>
+    <polygon points="350,62 480,94 350,126 220,94" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="89" text-anchor="middle" font-size="12" font-weight="600" fill="#7a5000">Is the streak</text>
+    <text x="350" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#7a5000">colored (not white)?</text>
+    <!-- YES right -->
+    <line x1="480" y1="94" x2="570" y2="94" stroke="#666" stroke-width="1.5" marker-end="url(#arr3)"/>
+    <text x="523" y="88" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="572" y="70" width="120" height="48" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="632" y="91" text-anchor="middle" font-size="11" font-weight="600" fill="#2a6a2a">Colored streak</text>
+    <text x="632" y="105" text-anchor="middle" font-size="10" fill="#444">Metallic/sulfide/oxide</text>
+    <text x="632" y="118" text-anchor="middle" font-size="10" fill="#1a6fbf">→ Table 2.2B</text>
+    <!-- NO left -->
+    <line x1="220" y1="94" x2="130" y2="94" stroke="#666" stroke-width="1.5" marker-end="url(#arr3)"/>
+    <text x="178" y="88" text-anchor="middle" font-size="11" fill="#b71c1c">NO</text>
+    <rect x="8" y="70" width="120" height="48" rx="6" fill="#fdecea" stroke="#e53935" stroke-width="1.5"/>
+    <text x="68" y="91" text-anchor="middle" font-size="11" font-weight="600" fill="#b71c1c">White / colorless</text>
+    <text x="68" y="105" text-anchor="middle" font-size="10" fill="#444">Most silicates</text>
+    <text x="68" y="118" text-anchor="middle" font-size="10" fill="#1a6fbf">→ Check cleavage</text>
+    <!-- down -->
+    <line x1="350" y1="126" x2="350" y2="150" stroke="#666" stroke-width="1.5" marker-end="url(#arr3)"/>
+    <rect x="220" y="152" width="260" height="30" rx="6" fill="#f7f7f5" stroke="#ccc" stroke-width="1"/>
+    <text x="350" y="172" text-anchor="middle" font-size="12" fill="#444">→ Proceed to cleavage check</text>
+  </svg></div>`;
+  h+=quizHTML("streak",quiz)+"</div>";
+  return h;
+}
+
+function cleavageHTML(){
+  const quiz={q:"A broken mineral forms perfect cubes no matter how you strike it. All break angles are 90°. How many cleavage planes does it have?",
+    opts:["1 plane","2 planes at 90°","3 planes at 90°","No cleavage"],ans:2,
+    expl:["One plane produces flat sheets like mica — not cubes.",
+          "Two planes at 90° produce rectangular prisms (bricks) — not perfect cubes.",
+          "Correct! Three cleavage planes meeting at 90° produce cubic shapes — like Halite or Galena.",
+          "No cleavage produces irregular fracture surfaces, not cubes."]};
+  let h=`<div class="card"><h2>💎 Cleavage &amp; fracture</h2>
+  <p class="intro">Cleavage is the tendency of a mineral to break along flat, parallel planes of atomic weakness. Fracture is irregular breakage with no planar pattern. These are among the most diagnostic properties in mineral identification.</p>
+  <div class="tip" style="margin-bottom:12px">💡 A cleavage plane "winks" at you — when you rotate a mineral in light, a flat cleavage surface briefly flashes. Fracture surfaces look dull and irregular by comparison.</div>
+
+  <div class="section-divider">Cleavage types reference table</div>
+  <table class="cl-table">
+    <tr><th>Planes &amp; angle</th><th>Cleavage type</th><th>Shape produced</th><th>Example mineral</th></tr>
+    <tr><td class="cl-planes">0 — fracture only</td><td>Conchoidal / irregular fracture</td><td>Scooped, glassy surfaces — no flat planes</td><td>Quartz</td></tr>
+    <tr><td class="cl-planes">1 plane</td><td>Basal cleavage</td><td>Flat sheets — like peeling pages of a book</td><td>Muscovite, Biotite mica</td></tr>
+    <tr><td class="cl-planes">2 planes at 90°</td><td>Prismatic (rectangular)</td><td>Rectangular blocks with right-angle corners</td><td>Feldspar group</td></tr>
+    <tr><td class="cl-planes">2 planes not at 90°</td><td>Prismatic (parallelogram)</td><td>Angled parallelogram cross-section</td><td>Hornblende (Amphibole)</td></tr>
+    <tr><td class="cl-planes">3 planes at 90°</td><td>Cubic cleavage</td><td>Perfect cubes and parts of cubes</td><td>Halite, Galena</td></tr>
+    <tr><td class="cl-planes">3 planes not at 90°</td><td>Rhombohedral cleavage</td><td>Rhombus shapes and parts of rhombohedrons</td><td>Calcite, Dolomite</td></tr>
+    <tr><td class="cl-planes">4 planes</td><td>Octahedral cleavage</td><td>Eight-sided forms and parts of octahedrons</td><td>Fluorite</td></tr>
+  </table>
+
+  <div class="section-divider">Cleavage identification flowchart</div>
+  <div class="fc-wrap">
+  <svg width="700" height="300" viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+    <defs><marker id="arr4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
+    <!-- Start -->
+    <rect x="240" y="8" width="220" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="29" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">Examine broken surfaces</text>
+    <line x1="350" y1="40" x2="350" y2="60" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <!-- Diamond 1 -->
+    <polygon points="350,62 480,94 350,126 220,94" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="89" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Any flat, shiny</text>
+    <text x="350" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">parallel faces?</text>
+    <!-- NO = fracture -->
+    <line x1="220" y1="94" x2="110" y2="94" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <text x="168" y="88" text-anchor="middle" font-size="11" fill="#b71c1c">NO</text>
+    <rect x="5" y="74" width="103" height="40" rx="6" fill="#fdecea" stroke="#e53935" stroke-width="1.5"/>
+    <text x="56" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#b71c1c">FRACTURE only</text>
+    <text x="56" y="109" text-anchor="middle" font-size="10" fill="#444">e.g. Quartz</text>
+    <!-- YES down -->
+    <line x1="350" y1="126" x2="350" y2="148" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <text x="358" y="140" font-size="11" fill="#2a6a2a">YES</text>
+    <!-- Diamond 2: count planes -->
+    <polygon points="350,150 480,182 350,214 220,182" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="177" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">How many</text>
+    <text x="350" y="193" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">cleavage planes?</text>
+    <!-- 1 plane left -->
+    <line x1="220" y1="182" x2="120" y2="182" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <text x="173" y="176" text-anchor="middle" font-size="11" fill="#1a6fbf">1</text>
+    <rect x="5" y="162" width="113" height="40" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="61" y="183" text-anchor="middle" font-size="11" font-weight="600" fill="#1a6fbf">Basal cleavage</text>
+    <text x="61" y="197" text-anchor="middle" font-size="10" fill="#444">Mica group, clay</text>
+    <!-- 2 planes right -->
+    <line x1="480" y1="182" x2="560" y2="182" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <text x="518" y="176" text-anchor="middle" font-size="11" fill="#1a6fbf">2</text>
+    <rect x="562" y="158" width="130" height="48" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="627" y="178" text-anchor="middle" font-size="11" font-weight="600" fill="#1a6fbf">2-plane cleavage</text>
+    <text x="627" y="192" text-anchor="middle" font-size="10" fill="#444">90° → Feldspar</text>
+    <text x="627" y="205" text-anchor="middle" font-size="10" fill="#444">not 90° → Hornblende</text>
+    <!-- 3/4 planes down -->
+    <line x1="350" y1="214" x2="350" y2="244" stroke="#666" stroke-width="1.5" marker-end="url(#arr4)"/>
+    <text x="358" y="233" font-size="11" fill="#1a6fbf">3 or 4</text>
+    <rect x="230" y="246" width="240" height="48" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="266" text-anchor="middle" font-size="11" font-weight="600" fill="#1a6fbf">3 planes at 90° → Cubic (Halite, Galena)</text>
+    <text x="350" y="280" text-anchor="middle" font-size="10" fill="#444">3 not at 90° → Rhombohedral (Calcite) &nbsp;|&nbsp; 4 → Octahedral (Fluorite)</text>
+  </svg></div>`;
+  h+=quizHTML("cleavage",quiz)+"</div>";
+  return h;
+}
+
+function specialHTML(){
+  const props=[
+    {icon:"⚖️",name:"Specific gravity (heft)",desc:"Most minerals feel 'average' for their size. Very light minerals (Halite, SG 2.2) or very heavy minerals (Galena, SG 7.6) stand out immediately when placed in your palm."},
+    {icon:"🧲",name:"Magnetism",desc:"Very few minerals are naturally magnetic. Magnetite and pyrrhotite are strongly attracted to a magnet — a near-instant identification."},
+    {icon:"🧪",name:"Reaction to HCl acid",desc:"Carbonate minerals (especially Calcite, CaCO₃) fizz vigorously when a drop of dilute HCl is applied. CO₂ gas is released, producing visible bubbles."},
+    {icon:"👁️",name:"Diaphaneity",desc:"How much light passes through: Transparent (image visible), Translucent (light but no clear image), or Opaque (no light). Most common minerals are opaque."},
+    {icon:"🔷",name:"Crystal form / habit",desc:"When grown in open space, minerals form characteristic shapes. Garnet grows dodecahedrons. Pyrite grows cubes. Quartz grows prismatic columns. Crystal form is not the same as cleavage."},
+  ];
+  const quiz={q:"You apply dilute HCl to an unknown white mineral and it fizzes vigorously. What mineral group does it belong to?",
+    opts:["Silicates","Oxides","Carbonates","Sulfides"],ans:2,
+    expl:["Silicate minerals (quartz, feldspar, mica) do not react with dilute HCl.",
+          "Oxide minerals generally do not produce CO₂ fizzing.",
+          "Correct! Carbonate minerals like Calcite (CaCO₃) react with HCl to release CO₂, producing vigorous fizzing.",
+          "Sulfide minerals may react with strong acid but not with the CO₂ fizz of carbonates."]};
+  let h=`<div class="card"><h2>🔬 Other diagnostic properties</h2>
+  <p class="intro">Several additional properties are highly diagnostic for specific minerals and should be checked when other properties are ambiguous.</p>`;
+  props.forEach(p=>{
+    h+=`<div class="proprow"><div class="propicon">${p.icon}</div><div><div class="propname">${p.name}</div><div class="propdesc">${p.desc}</div></div></div>`;
+  });
+  h+=quizHTML("special",quiz)+"</div>";
+  return h;
+}
+
+function flowchartHTML(){
+  let h=`<div class="card"><h2>🗂️ Mineral identification flowchart</h2>
+  <p class="intro">Use this master flowchart to navigate to the correct identification table. Always start with luster, then work through each property in order. Use the <a href="http://profharwood.x10host.com/GEOL101/Labs/Minerals/Min01.htm" target="_blank" style="color:#1a6fbf">mineral ID website ↗</a> to run each test.</p>
+
+  <div class="fc-wrap">
+  <svg width="700" height="420" viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+    <defs><marker id="arr5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#666"/></marker></defs>
+    <!-- Start -->
+    <rect x="250" y="8" width="200" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="2"/>
+    <text x="350" y="29" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">1. Check LUSTER</text>
+    <line x1="350" y1="40" x2="350" y2="62" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- Luster diamond -->
+    <polygon points="350,64 460,96 350,128 240,96" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="91" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Metallic</text>
+    <text x="350" y="105" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">luster?</text>
+    <!-- YES = Table 2.2A -->
+    <line x1="460" y1="96" x2="570" y2="96" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="513" y="90" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="572" y="76" width="120" height="40" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="632" y="97" text-anchor="middle" font-size="12" font-weight="600" fill="#2a6a2a">Table 2.2A</text>
+    <text x="632" y="111" text-anchor="middle" font-size="10" fill="#444">Metallic minerals</text>
+    <!-- NO down -->
+    <line x1="350" y1="128" x2="350" y2="150" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="360" y="142" font-size="11" fill="#b71c1c">NO</text>
+    <!-- Step 2 Hardness -->
+    <rect x="240" y="152" width="220" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="173" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">2. Check HARDNESS</text>
+    <line x1="350" y1="184" x2="350" y2="206" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- Hardness diamond -->
+    <polygon points="350,208 480,240 350,272 220,240" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="235" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Hardness</text>
+    <text x="350" y="249" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">&gt; 5.5?</text>
+    <!-- YES hardness > 5.5 right -->
+    <line x1="480" y1="240" x2="572" y2="240" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="524" y="234" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="574" y="210" width="118" height="60" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="633" y="232" text-anchor="middle" font-size="10" font-weight="600" fill="#2a6a2a">H &gt; 5.5</text>
+    <text x="633" y="246" text-anchor="middle" font-size="10" fill="#1a6fbf">No cleavage → 2.2E</text>
+    <text x="633" y="260" text-anchor="middle" font-size="10" fill="#1a6fbf">Cleavage → 2.2F</text>
+    <!-- NO hardness < 5.5 down -->
+    <line x1="350" y1="272" x2="350" y2="294" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="360" y="286" font-size="11" fill="#b71c1c">NO (&lt;5.5)</text>
+    <!-- Step 3 Streak -->
+    <rect x="240" y="296" width="220" height="32" rx="6" fill="#e8f0fb" stroke="#1a6fbf" stroke-width="1.5"/>
+    <text x="350" y="317" text-anchor="middle" font-size="13" font-weight="600" fill="#1a6fbf">3. Check STREAK</text>
+    <line x1="350" y1="328" x2="350" y2="348" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <!-- Streak diamond -->
+    <polygon points="350,350 460,374 350,398 240,374" fill="#fff8e8" stroke="#f0a000" stroke-width="1.5"/>
+    <text x="350" y="369" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">Colored</text>
+    <text x="350" y="383" text-anchor="middle" font-size="11" font-weight="600" fill="#7a5000">streak?</text>
+    <!-- YES colored -->
+    <line x1="460" y1="374" x2="572" y2="374" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="514" y="368" text-anchor="middle" font-size="11" fill="#2a6a2a">YES</text>
+    <rect x="574" y="355" width="118" height="38" rx="6" fill="#edf7ed" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="633" y="374" text-anchor="middle" font-size="12" font-weight="600" fill="#2a6a2a">Table 2.2B</text>
+    <text x="633" y="388" text-anchor="middle" font-size="10" fill="#444">Colored streak</text>
+    <!-- NO white streak -->
+    <line x1="240" y1="374" x2="128" y2="374" stroke="#666" stroke-width="1.5" marker-end="url(#arr5)"/>
+    <text x="187" y="368" text-anchor="middle" font-size="11" fill="#b71c1c">NO (white)</text>
+    <rect x="5" y="344" width="121" height="60" rx="6" fill="#fdecea" stroke="#e53935" stroke-width="1.5"/>
+    <text x="65" y="366" text-anchor="middle" font-size="10" font-weight="600" fill="#b71c1c">White streak →</text>
+    <text x="65" y="380" text-anchor="middle" font-size="10" fill="#1a6fbf">No cleavage → 2.2C</text>
+    <text x="65" y="394" text-anchor="middle" font-size="10" fill="#1a6fbf">Cleavage → 2.2D</text>
+  </svg></div>
+
+  <a href="http://profharwood.x10host.com/GEOL101/Labs/Minerals/Min01.htm" target="_blank" style="display:inline-flex;align-items:center;gap:5px;font-size:13px;color:#1a6fbf;text-decoration:none;margin-top:6px">↗ Open mineral ID website</a>
+  </div>`;
+  return h;
+}
+
+function profileHTML(){
+  const p1=work.profile1, p2=work.profile2;
+  let h=`<div class="card"><h2>🌍 Mineral uses profile</h2>
+  <p class="intro">For the third deliverable, choose two minerals from your identified list and complete a short profile for each. A strong response connects the mineral's physical properties to WHY it is useful in society.</p>
+  <div class="template-list"><div class="tl-title">Your profile should include:</div>
+    <div class="tl-item"><span class="tl-num">1.</span>Mineral name and chemical formula</div>
+    <div class="tl-item"><span class="tl-num">2.</span>Two or three key physical properties</div>
+    <div class="tl-item"><span class="tl-num">3.</span>Primary industrial or commercial uses</div>
+    <div class="tl-item"><span class="tl-num">4.</span>One sentence explaining HOW a physical property makes it useful</div>
+  </div>
+  <div class="example-box">
+    <div class="ex-title">Example — Halite (NaCl)</div>
+    <div class="ex-line"><strong>Properties:</strong> Hardness 2.5, cubic cleavage, salty taste, soluble in water</div>
+    <div class="ex-line"><strong>Uses:</strong> Table salt, road de-icing, food preservation, chemical feedstock</div>
+    <div class="ex-line"><strong>Connection:</strong> Its water solubility allows it to dissolve and distribute flavor or melt ice on contact — a direct result of the ionic bonding in its crystal structure.</div>
+  </div>
+  <div style="font-size:14px;font-weight:600;margin-bottom:10px">Complete your two profiles below:</div>`;
+
+  [1,2].forEach(n=>{
+    const st=n===1?p1:p2;
+    h+=`<div class="profile-block"><div class="pb-title">Mineral ${n}</div>
+      <label class="field-label">Mineral name</label>
+      <select id="pmineral${n}"><option value="">Select a mineral…</option>${MINERALS.map(m=>`<option value="${m}"${st.mineral===m?" selected":""}>${m}</option>`).join("")}</select>
+      <label class="field-label">Key physical properties</label>
+      <textarea id="pprops${n}" rows="2" placeholder="e.g. Hardness 2.5, cubic cleavage, metallic luster">${st.props}</textarea>
+      <label class="field-label">Industrial / commercial uses</label>
+      <textarea id="puses${n}" rows="2" placeholder="e.g. Table salt, road de-icing, food preservation">${st.uses}</textarea>
+      <label class="field-label">How does a physical property enable that use?</label>
+      <textarea id="pconnection${n}" rows="2" placeholder="e.g. Its water solubility allows it to dissolve and melt ice on contact…">${st.connection}</textarea>
+    </div>`;
+  });
+  h+="</div>";
+  return h;
+}
+
+function render(){
+  buildNav();
+  const sec=SECTIONS[current];
+  document.getElementById("content").innerHTML=sectionHTML(sec.id);
+  document.getElementById("pgcount").textContent=(current+1)+" / "+SECTIONS.length;
+  document.getElementById("prev").disabled=current===0;
+  document.getElementById("next").disabled=current===SECTIONS.length-1;
+  if(sec.id==="hardness")renderHList();
+  window.scrollTo(0,0);
+}
+
+document.getElementById("prev").onclick=()=>{if(current>0){saveCurrent();current--;render();}};
+document.getElementById("next").onclick=()=>{if(current<SECTIONS.length-1){saveCurrent();current++;render();}};
+
+function exportWork(){
+  saveCurrent();
+  const name=document.getElementById("studentName").value||"Student";
+  const now=new Date().toLocaleString();
+  const qLabels=["intro","luster","hardness","streak","cleavage","special"];
+  const qNames=["What is a mineral?","Luster","Hardness","Streak","Cleavage & fracture","Other properties"];
+  const qData=[
+    {opts:["Rock candy","Cubic zirconia","Halite (NaCl)","Olive oil"],ans:2},
+    {opts:["Vitreous","Metallic","Pearly","Earthy"],ans:1},
+    {opts:["Less than 2.5","Between 2.5 and 3.5","Between 3.5 and 5.5","Greater than 5.5"],ans:1},
+    {opts:["Gold","Pyrite","Hematite","Calcite"],ans:1},
+    {opts:["1 plane","2 planes at 90°","3 planes at 90°","No cleavage"],ans:2},
+    {opts:["Silicates","Oxides","Carbonates","Sulfides"],ans:2},
+  ];
+
+  let out=`MINERAL PROPERTIES LAB — SUBMISSION\n`;
+  out+=`=====================================\n`;
+  out+=`Student: ${name}\n`;
+  out+=`Submitted: ${now}\n\n`;
+
+  out+=`SECTION 1: CHECK YOUR UNDERSTANDING — QUIZ ANSWERS\n`;
+  out+=`---------------------------------------------------\n`;
+  qLabels.forEach((id,i)=>{
+    const chosen=work.quizAnswers[id];
+    const correct=qData[i].ans;
+    const status=chosen===undefined?"Not attempted":(chosen===correct?"Correct":"Incorrect");
+    const chosenText=chosen!==undefined?qData[i].opts[chosen]:"—";
+    out+=`${qNames[i]}: ${chosenText} [${status}]\n`;
+  });
+
+  out+=`\nSECTION 2: MINERAL PROFILES\n`;
+  out+=`----------------------------\n`;
+  [1,2].forEach(n=>{
+    const p=work[`profile${n}`];
+    out+=`\nMineral ${n}: ${p.mineral||"(not selected)"}\n`;
+    out+=`  Properties: ${p.props||"(blank)"}\n`;
+    out+=`  Uses: ${p.uses||"(blank)"}\n`;
+    out+=`  Property-use connection: ${p.connection||"(blank)"}\n`;
+  });
+
+  out+=`\n=====================================\n`;
+  out+=`End of submission.\n`;
+
+  const blob=new Blob([out],{type:"text/plain"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  const safeName=name.replace(/[^a-z0-9]/gi,"_");
+  a.download=`MineralLab_${safeName}.txt`;
+  a.click();
+}
+window.exportWork=exportWork;
+
+render();
+</script>
+</body>
+</html>
