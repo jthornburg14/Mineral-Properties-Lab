@@ -10,14 +10,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .wrap{max-width:860px;margin:0 auto;padding:20px 16px 80px}
 h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
 .tagline{font-size:13px;color:#666;text-align:center;margin-bottom:16px}
-/* tabs */
 .tabs{display:flex;gap:0;margin-bottom:18px;border-bottom:2px solid #ddd}
 .tab{padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;color:#666;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
 .tab:hover{color:#1a6fbf}
 .tab.active{color:#1a6fbf;border-bottom-color:#1a6fbf}
 .tab-panel{display:none}
 .tab-panel.active{display:block}
-/* sample bar */
 .sample-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
 .sample-btn{width:44px;height:44px;border-radius:8px;border:1.5px solid #ccc;background:#fff;font-size:14px;font-weight:600;cursor:pointer;color:#444;transition:all .15s}
 .sample-btn:hover{border-color:#1a6fbf;color:#1a6fbf}
@@ -26,23 +24,19 @@ h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
 .sample-btn.correct.active{background:#4caf50;border-color:#4caf50;color:#fff}
 .sample-btn.wrong{border-color:#e53935;color:#e53935}
 .sample-btn.wrong.active{background:#e53935;border-color:#e53935;color:#fff}
-/* progress */
 .prog-wrap{background:#eee;border-radius:6px;height:8px;margin-bottom:4px;overflow:hidden}
 .prog-fill{height:100%;background:#4caf50;border-radius:6px;transition:width .4s}
 .prog-label{font-size:12px;color:#666;margin-bottom:14px}
-/* main layout */
 .main{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 @media(max-width:580px){.main{grid-template-columns:1fr}}
-/* photo */
 .photo-panel{background:#fff;border:1px solid #ddd;border-radius:10px;overflow:hidden}
 .photo-lbl{padding:9px 12px;font-size:13px;font-weight:600;color:#444;border-bottom:1px solid #eee}
-.photo-wrap{background:#111;height:230px;display:flex;align-items:center;justify-content:center}
-.photo-wrap img{max-width:100%;max-height:230px;object-fit:contain}
-.photo-err{color:#888;font-size:12px;text-align:center;padding:16px}
+.photo-wrap{background:#111;height:230px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo-wrap img{max-width:100%;max-height:230px;object-fit:contain;display:block}
+.photo-err{color:#aaa;font-size:12px;text-align:center;padding:20px;line-height:1.6}
 .photo-toggle{display:flex;border-top:1px solid #eee}
 .photo-toggle button{flex:1;padding:7px;font-size:12px;background:#f7f7f5;border:none;cursor:pointer;color:#555}
 .photo-toggle button.active{background:#e8f0fb;color:#1a6fbf;font-weight:600}
-/* tests */
 .tests-panel{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px}
 .tests-title{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
 .tg{margin-bottom:10px}
@@ -55,7 +49,6 @@ h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
 .rbox.show{display:block}
 .rbox.info{background:#e8f0fb;color:#0d47a1;border:1px solid #b3c8f0}
 .rbox.warn{background:#fff8e8;color:#7a5000;border:1px solid #f0c040}
-/* worksheet */
 .card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px;margin-bottom:14px}
 .card-title{font-size:14px;font-weight:700;margin-bottom:10px}
 .ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -65,15 +58,13 @@ h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
 .wf select:focus,.wf textarea:focus{outline:2px solid #1a6fbf;border-color:#1a6fbf}
 .wf select:disabled,.wf textarea:disabled{background:#f5f5f5;color:#888;cursor:not-allowed}
 .wf.full{grid-column:1/-1}
-/* name grid */
 .name-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px}
 .name-btn{padding:7px 8px;font-size:12px;border-radius:6px;border:1px solid #ccc;background:#f7f7f5;cursor:pointer;color:#333;text-align:center;transition:all .12s}
 .name-btn:hover:not(:disabled){border-color:#1a6fbf;color:#1a6fbf;background:#e8f0fb}
 .name-btn.selected{border-color:#1a6fbf;background:#1a6fbf;color:#fff;font-weight:600}
 .name-btn:disabled{cursor:not-allowed;opacity:.6}
-.name-btn.locked-correct{border-color:#4caf50;background:#edf7ed;color:#1b5e20;font-weight:600}
-.name-btn.locked-wrong{border-color:#e53935;background:#fdecea;color:#7f0000;font-weight:600}
-/* action */
+.name-btn.locked-correct{border-color:#4caf50!important;background:#edf7ed!important;color:#1b5e20!important;font-weight:600;opacity:1!important}
+.name-btn.locked-wrong{border-color:#e53935!important;background:#fdecea!important;color:#7f0000!important;font-weight:600;opacity:1!important}
 .action-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .btn-grade{padding:9px 22px;font-size:14px;font-weight:600;background:#1a6fbf;color:#fff;border:none;border-radius:7px;cursor:pointer}
 .btn-grade:hover:not(:disabled){background:#145a9e}
@@ -84,26 +75,21 @@ h1{font-size:20px;font-weight:700;text-align:center;margin-bottom:2px}
 .grade-banner.show{display:block}
 .grade-banner.pass{background:#edf7ed;border:1.5px solid #4caf50;color:#1b5e20}
 .grade-banner.fail{background:#fdecea;border:1.5px solid #e53935;color:#7f0000}
-.one-attempt-note{font-size:12px;color:#b71c1c;font-weight:600;display:flex;align-items:center;gap:4px}
-/* ---- ID TABLES ---- */
+.one-attempt-note{font-size:12px;color:#b71c1c;font-weight:600}
 .table-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .tnav-btn{padding:6px 12px;font-size:12px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer;color:#444;transition:all .12s}
 .tnav-btn:hover{border-color:#1a6fbf;color:#1a6fbf}
 .tnav-btn.active{background:#e8f0fb;border-color:#1a6fbf;color:#1a6fbf;font-weight:600}
-.table-section{display:none}
-.table-section.active{display:block}
+.table-title{font-size:14px;font-weight:700;margin-bottom:10px;padding:10px 12px;background:#f7f7f5;border-radius:0 8px 8px 0;border-left:3px solid #1a6fbf}
 .id-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:8px}
 .id-table th{background:#e8f0fb;padding:8px 10px;text-align:left;font-weight:700;border:1px solid #c5d8f0;font-size:12px}
 .id-table td{padding:7px 10px;border:1px solid #ddd;vertical-align:top;line-height:1.5}
 .id-table tr:nth-child(even) td{background:#f7f7f5}
-.id-table td strong{color:#1a6fbf}
-.table-title{font-size:14px;font-weight:700;margin-bottom:10px;color:#1a1a1a;padding:10px 12px;background:#f7f7f5;border-radius:8px;border-left:3px solid #1a6fbf;border-top-left-radius:0;border-bottom-left-radius:0}
 .search-row{display:flex;gap:8px;margin-bottom:12px;align-items:center}
 .search-row input{flex:1;font-size:13px;padding:7px 10px;border:1.5px solid #ccc;border-radius:6px;font-family:inherit}
 .search-row input:focus{outline:2px solid #1a6fbf;border-color:#1a6fbf}
 .search-row span{font-size:12px;color:#888;white-space:nowrap}
 .highlight{background:#fff3a0}
-/* export */
 .export-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:10px;z-index:100;flex-wrap:wrap}
 .export-bar span{font-size:13px;color:#555}
 .btn-export{padding:7px 18px;font-size:13px;font-weight:600;background:#1a6fbf;color:#fff;border:none;border-radius:6px;cursor:pointer}
@@ -121,7 +107,7 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
   <button class="tab" onclick="switchTab('tables')">📋 ID tables</button>
 </div>
 
-<!-- ===== IDENTIFY TAB ===== -->
+<!-- IDENTIFY TAB -->
 <div class="tab-panel active" id="tab-identify">
   <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
   <p class="prog-label" id="prog-label">0 of 10 samples attempted</p>
@@ -130,9 +116,13 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
   <div class="main">
     <div class="photo-panel">
       <div class="photo-lbl" id="sample-label">Sample 1</div>
-      <div class="photo-wrap" id="photo-wrap">
-        <img id="photo-main" src="" alt="Mineral sample" onerror="this.style.display='none';document.getElementById('photo-err').style.display='block'">
-        <div class="photo-err" id="photo-err" style="display:none">📷 Photo loading… check your internet connection.</div>
+      <div class="photo-wrap">
+        <img id="photo-main" src="" alt="Mineral sample"
+          onerror="this.style.display='none';document.getElementById('photo-err').style.display='flex'">
+        <div id="photo-err" style="display:none;flex-direction:column;align-items:center;gap:8px;color:#aaa;font-size:12px;text-align:center;padding:20px">
+          <span style="font-size:28px">📷</span>
+          <span>Image not found.<br>Make sure the <strong>images/</strong> folder is uploaded<br>to your GitHub repository.</span>
+        </div>
       </div>
       <div class="photo-toggle">
         <button id="btn-img1" class="active" onclick="switchPhoto(0)">Photo 1</button>
@@ -232,8 +222,8 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
           <option>Salty taste</option><option>Very high specific gravity</option>
           <option>Flexible / elastic sheets</option>
         </select></div>
-      <div class="wf full"><label>Notes / reasoning (optional — use the ID tables to help)</label>
-        <textarea id="ws-notes" rows="2" placeholder="e.g. Non-metallic, hardness ~3, rhombohedral cleavage, fizzes with HCl → checked Table 2.2D → Calcite"></textarea>
+      <div class="wf full"><label>Notes / reasoning — which table did you use and why?</label>
+        <textarea id="ws-notes" rows="2" placeholder="e.g. Non-metallic luster, hardness ~3, rhombohedral cleavage, fizzes with HCl → Table 2.2D → Calcite"></textarea>
       </div>
     </div>
   </div>
@@ -250,7 +240,7 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
   <div class="grade-banner" id="grade-banner"></div>
 </div>
 
-<!-- ===== TABLES TAB ===== -->
+<!-- TABLES TAB -->
 <div class="tab-panel" id="tab-tables">
   <div class="search-row">
     <input type="text" id="table-search" placeholder="Search tables… e.g. calcite, red-brown, cleavage" oninput="searchTables()">
@@ -260,7 +250,7 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
   <div id="table-content"></div>
 </div>
 
-</div><!-- end wrap -->
+</div>
 
 <div class="export-bar">
   <span>Name:</span>
@@ -269,95 +259,117 @@ input.name-input{font-size:13px;border:1px solid #ccc;border-radius:6px;padding:
 </div>
 
 <script>
-// ===================== SAMPLE DATA =====================
-const MINERAL_NAMES = ["Calcite","Fluorite","Galena","Halite","Hematite","Muscovite","Olivine","Orthoclase","Pyrite","Quartz"];
+// ===================== IMAGE PATHS =====================
+// All images are loaded from the images/ folder in the same
+// GitHub repository. File names must match exactly.
+const MINERAL_NAMES = [
+  "Calcite","Fluorite","Galena","Halite","Hematite",
+  "Muscovite","Olivine","Orthoclase","Pyrite","Quartz"
+];
 
 const SAMPLES = [
-  {num:1,name:"Quartz",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/1/14/Quartz%2C_Tibet.jpg","https://upload.wikimedia.org/wikipedia/commons/c/ce/Quartz_Br%C3%A9sil.jpg"],
+  {num:1, name:"Quartz",
+   imgs:["images/quartz1.jpg","images/quartz2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Not scratched.",5:"Not scratched.",6:"Not scratched.",7:"Scratched! Hardness is approximately 7.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"No cleavage. Surfaces show conchoidal (shell-like, curved) fracture — similar to broken glass.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
-   special:"Conchoidal fracture is highly diagnostic. Hardness of 7 — scratches glass easily. Often shows six-sided prismatic crystal form.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
+   special:"Conchoidal fracture is highly diagnostic. Hardness of 7 — scratches glass easily. Often shows six-sided prismatic crystal form. See Table 2.2E.",
    ws:{color:"Colorless / clear",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"7",cleavage:"0 — fracture only",fracture:"Conchoidal",form:"Prismatic",special:"None"}},
 
-  {num:2,name:"Orthoclase",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Orthoclase-272638.jpg/320px-Orthoclase-272638.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Feldspar-Group-291.jpg/320px-Feldspar-Group-291.jpg"],
+  {num:2, name:"Orthoclase",
+   imgs:["images/orthoclase1.jpg","images/orthoclase2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Not scratched.",5:"Not scratched.",6:"Scratched! Hardness is approximately 6.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Two cleavage planes meeting at 90°. Produces rectangular blocky fragments. Fracture surfaces visible on non-cleavage faces.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
-   special:"Two cleavage planes at exactly 90° is highly diagnostic of the feldspar group. Pink to salmon color is common in potassium feldspar.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
+   special:"Two cleavage planes at exactly 90° is diagnostic of the feldspar group. Pink to salmon color is common in potassium feldspar (orthoclase). See Table 2.2F.",
    ws:{color:"Pink",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"6",cleavage:"2 planes at 90°",fracture:"Irregular",form:"Not present / irregular",special:"None"}},
 
-  {num:3,name:"Calcite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Calcite-233549.jpg/320px-Calcite-233549.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Calcite_polymorphs.jpg/320px-Calcite_polymorphs.jpg"],
+  {num:3, name:"Calcite",
+   imgs:["images/calcite1.jpg","images/calcite2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Scratched! Hardness is approximately 3.",4:"Scratched.",5:"Scratched.",6:"Scratched.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Three cleavage planes NOT at 90°. Produces perfect rhombohedrons — parallelogram-shaped blocks. All faces are smooth and flat.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
    hcl:"VIGOROUS FIZZING! The sample reacts strongly with dilute HCl. CO₂ gas is released as bubbles. This is the carbonate acid test — highly diagnostic for calcite.",
    special:"Rhombohedral cleavage and vigorous HCl reaction together are definitive for calcite. Hardness of 3 — scratched by a penny. See Table 2.2D.",
    ws:{color:"White",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"3",cleavage:"3 planes not at 90°",fracture:"Not applicable (has cleavage)",form:"Rhombohedral",special:"Reacts with HCl (fizzes)"}},
 
-  {num:4,name:"Halite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Halite-249768.jpg/320px-Halite-249768.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Halite_crystals_macro.jpg/320px-Halite_crystals_macro.jpg"],
+  {num:4, name:"Halite",
+   imgs:["images/halite1.jpg","images/halite2.jpg"],
    hardness:{1:"Not scratched.",2:"Scratched! Hardness is approximately 2.5.",3:"Scratched.",4:"Scratched.",5:"Scratched.",6:"Scratched.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Three cleavage planes at 90°. Produces perfect cubes and cubic fragments. All cleavage faces are smooth and reflective.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
-   special:"Distinctive salty taste. Perfect cubic cleavage. Low specific gravity — feels lighter than expected. Soluble in water. See Table 2.2D.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
+   special:"Distinctive salty taste. Perfect cubic cleavage. Low specific gravity — feels lighter than expected for its size. Soluble in water. See Table 2.2D.",
    ws:{color:"Colorless / clear",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"2.5",cleavage:"3 planes at 90°",fracture:"Not applicable (has cleavage)",form:"Cubic",special:"Salty taste"}},
 
-  {num:5,name:"Pyrite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pyrite_-_Navajun%2C_La_Rioja%2C_Spain.jpg/320px-Pyrite_-_Navajun%2C_La_Rioja%2C_Spain.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pyrite_from_Rio_Marina.jpg/320px-Pyrite_from_Rio_Marina.jpg"],
+  {num:5, name:"Pyrite",
+   imgs:["images/pyrite1.jpg","images/pyrite2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Not scratched.",5:"Not scratched.",6:"Scratched! Hardness is approximately 6.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Poor cleavage. Surfaces show irregular and conchoidal fracture. Cubic crystal form is common but this is FORM, not cleavage.",
    streak:"Greenish-black to gray-black powdered streak. Very different from its gold surface color.",
-   magnet:"No magnetic attraction. (Note: pyrite is NOT magnetite.)",hcl:"No reaction to HCl acid.",
+   magnet:"No magnetic attraction. (Note: pyrite is NOT the same as magnetite.)",
+   hcl:"No reaction to HCl acid.",
    special:"Metallic luster, brassy yellow color, and gray-black streak distinguish it from real gold. Crystal form often cubic or pyritohedral. See Table 2.2A.",
    ws:{color:"Yellow / gold",streak:"Green-black",luster:"Metallic",hardness:"6",cleavage:"0 — fracture only",fracture:"Irregular",form:"Cubic",special:"None"}},
 
-  {num:6,name:"Hematite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Hematite.jpg/320px-Hematite.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hematite_-_Iron_Rose.jpg/320px-Hematite_-_Iron_Rose.jpg"],
+  {num:6, name:"Hematite",
+   imgs:["images/hematite1.jpg","images/hematite2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Not scratched.",5:"Not scratched.",6:"Scratched! Hardness is approximately 5.5–6.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"No true cleavage. Irregular fracture surfaces.",
    streak:"Red-brown (rust-colored) powdered streak. Highly diagnostic — the oxidized iron color shows clearly in powder form.",
-   magnet:"Weakly attracted in some forms (specular hematite). Not strongly magnetic like magnetite.",hcl:"No reaction to HCl acid.",
-   special:"Red-brown streak is the most diagnostic property — very different from its dark gray surface. See Table 2.2A.",
+   magnet:"Weakly attracted in some forms (specular hematite). Not strongly magnetic like magnetite.",
+   hcl:"No reaction to HCl acid.",
+   special:"Red-brown streak is the most diagnostic property — very different from its dark gray surface appearance. See Table 2.2A.",
    ws:{color:"Gray",streak:"Red-brown",luster:"Metallic",hardness:"6",cleavage:"0 — fracture only",fracture:"Irregular",form:"Not present / irregular",special:"None"}},
 
-  {num:7,name:"Muscovite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Muscovite-70527.jpg/320px-Muscovite-70527.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Muscovite_mica.jpg/320px-Muscovite_mica.jpg"],
+  {num:7, name:"Muscovite",
+   imgs:["images/muscovite1.jpg","images/muscovite2.jpg"],
    hardness:{1:"Not scratched.",2:"Scratched! Hardness is approximately 2–2.5.",3:"Scratched.",4:"Scratched.",5:"Scratched.",6:"Scratched.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"One perfect plane of basal cleavage. Peels into thin, flexible, elastic sheets — like pages of a book.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
    special:"Flexible and elastic thin sheets are highly diagnostic. Pearly to silky luster on cleavage faces. Sheets spring back when bent. See Table 2.2D.",
    ws:{color:"Colorless / clear",streak:"White / colorless",luster:"Pearly / silky",hardness:"2",cleavage:"1 plane (basal)",fracture:"Not applicable (has cleavage)",form:"Micaceous (flat sheets)",special:"Flexible / elastic sheets"}},
 
-  {num:8,name:"Galena",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Galena-40485.jpg/320px-Galena-40485.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Galena_-_Joplin%2C_Jasper_County%2C_Missouri%2C_USA.jpg/320px-Galena_-_Joplin%2C_Jasper_County%2C_Missouri%2C_USA.jpg"],
+  {num:8, name:"Galena",
+   imgs:["images/galena1.jpg","images/galena2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Scratched! Hardness is approximately 2.5.",4:"Scratched.",5:"Scratched.",6:"Scratched.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Three perfect cleavage planes at 90°. Produces perfect cubes. Cleavage faces are very bright and mirror-like.",
-   streak:"Gray-black / lead-gray powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
+   streak:"Gray-black / lead-gray powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
    special:"Extremely high specific gravity (SG ~7.6) — feels remarkably heavy for its size. Bright metallic luster. Cubic cleavage. Primary ore of lead. See Table 2.2A.",
    ws:{color:"Gray",streak:"Gray-black",luster:"Metallic",hardness:"2.5",cleavage:"3 planes at 90°",fracture:"Not applicable (has cleavage)",form:"Cubic",special:"Very high specific gravity"}},
 
-  {num:9,name:"Olivine",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Olivine-gem7-10a.jpg/320px-Olivine-gem7-10a.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dunite.jpg/320px-Dunite.jpg"],
+  {num:9, name:"Olivine",
+   imgs:["images/olivine1.jpg","images/olivine2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Not scratched.",5:"Not scratched.",6:"Not scratched.",7:"Scratched! Hardness is approximately 6.5–7.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Poor cleavage. Conchoidal to irregular fracture. Glassy fracture surfaces.",
-   streak:"White / colorless to pale green powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
-   special:"Diagnostic olive-green color — one of the few cases where color IS diagnostic. Vitreous luster. Common in mafic/ultramafic igneous rocks. See Table 2.2E.",
+   streak:"White / colorless to pale green powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
+   special:"Diagnostic olive-green color — one of the few cases where color IS diagnostic. Vitreous luster. Common in mafic and ultramafic igneous rocks. See Table 2.2E.",
    ws:{color:"Green",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"7",cleavage:"0 — fracture only",fracture:"Conchoidal",form:"Not present / irregular",special:"None"}},
 
-  {num:10,name:"Fluorite",
-   imgs:["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Fluorite-20188.jpg/320px-Fluorite-20188.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Fluorite_with_Quartz_-_Blanchard_Mine%2C_Bingham%2C_Socorro_County%2C_New_Mexico%2C_USA.jpg/320px-Fluorite_with_Quartz_-_Blanchard_Mine%2C_Bingham%2C_Socorro_County%2C_New_Mexico%2C_USA.jpg"],
+  {num:10, name:"Fluorite",
+   imgs:["images/fluorite1.jpg","images/fluorite2.jpg"],
    hardness:{1:"Not scratched.",2:"Not scratched.",3:"Not scratched.",4:"Scratched! Hardness is approximately 4.",5:"Scratched.",6:"Scratched.",7:"Scratched.",8:"Scratched.",9:"Scratched.",10:"Scratched."},
    cleavage:"Four cleavage planes — octahedral cleavage. Produces eight-sided octahedral forms and triangular faces. Cleavage faces are very smooth and glassy.",
-   streak:"White / colorless powdered streak.",magnet:"No magnetic attraction.",hcl:"No reaction to HCl acid.",
-   special:"Four cleavage planes (octahedral) is very distinctive. Commonly purple, green, or colorless. Exact hardness of 4 — Mohs standard mineral. Often fluorescent under UV. See Table 2.2D.",
+   streak:"White / colorless powdered streak.",
+   magnet:"No magnetic attraction.",
+   hcl:"No reaction to HCl acid.",
+   special:"Four cleavage planes (octahedral) is very distinctive. Commonly purple, green, or colorless. Exact hardness of 4 — the Mohs standard mineral. Often fluorescent under UV light. See Table 2.2D.",
    ws:{color:"Purple",streak:"White / colorless",luster:"Vitreous / glassy",hardness:"4",cleavage:"4 planes",fracture:"Not applicable (has cleavage)",form:"Octahedral",special:"None"}},
 ];
 
-// ===================== ID TABLES DATA =====================
+// ===================== ID TABLES =====================
 const TABLES = [
   {id:"2A",label:"2.2A — Metallic luster",
    title:"Table 2.2A — Metallic Luster or Tarnished (Dulled) Metallic Luster",
@@ -370,7 +382,7 @@ const TABLES = [
     ["","Yellow-brown","None","Dark brown to black; H = 5 to 5.5; S.G. = 4; massive or rounded forms with radiating, fiberlike layers.","<strong>Goethite</strong> FeO(OH)"],
     ["","Copper-red","None","Copper to brown, may have green coating; H = 2.5 to 3; S.G. = 8.9; malleable, sectile.","<strong>Copper</strong> Cu"],
     ["Greater than 5.5","Greenish black to black","None","Brass-yellow; H = 6; S.G. = 5.0; massive or as crystals (cube).","<strong>Pyrite</strong> FeS₂"],
-    ["","Black","None","Dark gray to black; H = 6; S.G. = 5.2; may have dull luster if surface not fresh; attracted to magnet.","<strong>Magnetite</strong> Fe₃O₄"],
+    ["","Black","None","Dark gray to black; H = 6; S.G. = 5.2; attracted to magnet.","<strong>Magnetite</strong> Fe₃O₄"],
     ["","Red-brown","None","Steel gray to dull red; H = 6; S.G. = 5.0; may be micaceous (tiny flakes) or massive.","<strong>Hematite</strong> Fe₂O₃"],
    ]},
   {id:"2B",label:"2.2B — Colored streak",
@@ -379,23 +391,23 @@ const TABLES = [
    rows:[
     ["Gray-black","One (not always visible)","Gray to black; H = 1; S.G. = 2.5; may have metallic luster; greasy feel; soils paper and fingers.","<strong>Graphite</strong> C"],
     ["Red-brown","None","Red to reddish brown; H = 1.5 to 5.5; S.G. = 5.0; dull luster; earthy or oolitic masses.","<strong>Hematite</strong> Fe₂O₃"],
-    ["Yellow-brown","None","Yellow-brown, orange-brown to dark brown; H = 1.5 to 5.5; S.G. = 3.6 to 4.0; dull luster, earthy, may be a rust-like coating.","<strong>Limonite</strong> (various hydrous iron oxides)"],
+    ["Yellow-brown","None","Yellow-brown to dark brown; H = 1.5 to 5.5; S.G. = 3.6 to 4.0; dull luster, earthy, may be a rust-like coating.","<strong>Limonite</strong> (various hydrous iron oxides)"],
     ["Yellow","None","Yellow; H = 1.5 to 2.5; S.G. = 2.1; resinous or vitreous luster.","<strong>Sulfur</strong> S"],
-    ["Yellow","Six (may be difficult to count)","Light yellow, yellowish brown, black; H = 3.5 to 4; S.G. = 4.0; resinous or vitreous luster; faint odor of hydrogen sulfide.","<strong>Sphalerite</strong> ZnS"],
-    ["Blue","None","Azure blue; H = 3.5 to 4; S.G. = 3.8; occurs as coatings, masses, or tiny crystals, commonly with malachite.","<strong>Azurite</strong> Cu₃(CO₃)₂(OH)₂"],
-    ["Green","None","Bright green; H = 3.5 to 4; S.G. = 4.0; occurs as coatings, masses, or tiny crystals, commonly with azurite.","<strong>Malachite</strong> Cu₂CO₃(OH)₂"],
+    ["Yellow","Six (may be difficult to count)","Light yellow, yellowish brown, black; H = 3.5 to 4; S.G. = 4.0; resinous luster; faint odor of hydrogen sulfide.","<strong>Sphalerite</strong> ZnS"],
+    ["Blue","None","Azure blue; H = 3.5 to 4; S.G. = 3.8; occurs as coatings or masses, commonly with malachite.","<strong>Azurite</strong> Cu₃(CO₃)₂(OH)₂"],
+    ["Green","None","Bright green; H = 3.5 to 4; S.G. = 4.0; occurs as coatings or masses, commonly with azurite.","<strong>Malachite</strong> Cu₂CO₃(OH)₂"],
    ]},
   {id:"2C",label:"2.2C — No cleavage, H < 5.5",
    title:"Table 2.2C — Nonmetallic Luster; Hardness Less than 5.5; White/Faint Streak; No Apparent Cleavage",
    cols:["Cleavage","Other","Mineral"],
    rows:[
     ["None or Indistinct","White, may have brownish tint; H = 1 to 2.5; S.G. = 2.6; dull luster; greasy feel, earthy odor, powdery.","<strong>Kaolinite</strong> Al₂Si₂O₅(OH)₄"],
-    ["","White, gray, or apple green; pearly luster; H = 1 (or 2 in some impure varieties); S.G. = 2.7 to 2.8; greasy feel; may have light gray streak.","<strong>Talc</strong> Mg₃Si₄O₁₀(OH)₂"],
+    ["","White, gray, or apple green; pearly luster; H = 1 (or 2 in impure varieties); S.G. = 2.7 to 2.8; greasy feel.","<strong>Talc</strong> Mg₃Si₄O₁₀(OH)₂"],
     ["","White; H = 2; S.G. = 2.3; satiny or silky luster and fibrous fracture indicates satin spar variety of gypsum.","<strong>Gypsum</strong> CaSO₄·2H₂O"],
     ["","Reddish brown to brown; H = 1 to 6; S.G. = 2.0 to 2.5; dull to earthy luster; massive or with pea-shaped structures. Not a true mineral.","<strong>Bauxite</strong> (hydrous aluminum oxides)"],
     ["","Multicolored green, gray, black; H = 3 to 5; S.G. = 2.5 to 2.6; dull to greasy luster; massive to fibrous (asbestos).","<strong>Serpentine</strong> Mg₃Si₂O₅(OH)₄"],
     ["","Light green to medium green, brown, yellow; vitreous luster; H = 5; S.G. = 3.2; six-sided crystals common.","<strong>Apatite</strong> Ca₅(PO₄)₃(F,Cl,OH)"],
-    ["","Buff, gray, white, pinkish; H = 3.5 to 4; S.G. = 2.8 to 2.9; small rhombohedral crystals or massive; three cleavages not at 90° may be indistinct; reacts slowly or not at all with dilute HCl unless powdered.","<strong>Dolomite</strong> CaMg(CO₃)₂"],
+    ["","Buff, gray, white, pinkish; H = 3.5 to 4; S.G. = 2.8 to 2.9; rhombohedral crystals or massive; three cleavages not at 90° may be indistinct; reacts slowly or not at all with dilute HCl unless powdered.","<strong>Dolomite</strong> CaMg(CO₃)₂"],
    ]},
   {id:"2D",label:"2.2D — Cleavage, H < 5.5",
    title:"Table 2.2D — Nonmetallic Luster; Hardness Less than 5.5; White/Faint Streak; One or More Cleavages",
@@ -406,13 +418,13 @@ const TABLES = [
     ["","Black to brownish black; vitreous luster; H = 2.5 to 3.0; S.G. = 2.8 to 3.2; perfect cleavage; transparent, flexible, and elastic in thin sheets.","<strong>Biotite</strong> (hydrous K-Mg-Fe-Al silicate)"],
     ["","Colorless, silvery white, brownish silvery white; vitreous luster; H = 2.0 to 2.5; S.G. = 2.8 to 2.9; perfect cleavage; transparent, flexible, and elastic in thin sheets.","<strong>Muscovite</strong> (hydrous K-Al silicate)"],
     ["","Clear, white, light gray; H = 2; S.G. = 2.3; vitreous to pearly luster; brittle sheets; one perfect cleavage, two poor cleavages in selenite variety.","<strong>Gypsum</strong> CaSO₄·2H₂O"],
-    ["Two","Black; H = 5 to 6; S.G. = 3.0 to 3.4; vitreous luster; two perfect cleavages meet at 124° and 56°; cleavage faces stepped rather than smooth; splintery appearance. An amphibole.","<strong>Hornblende</strong> (hydrous Na-Ca-Mg-Fe-Al silicate)"],
-    ["","Black to dark green; H = 5 to 6; S.G. = 3.2 to 3.4; vitreous to dull luster; two imperfect cleavages meet at nearly 90°. Tends to look 'blocky,' not splintery. A pyroxene.","<strong>Augite</strong> Ca-Mg-Fe silicate"],
+    ["Two","Black; H = 5 to 6; S.G. = 3.0 to 3.4; vitreous luster; two perfect cleavages meet at 124° and 56°; splintery appearance. An amphibole.","<strong>Hornblende</strong> (hydrous Na-Ca-Mg-Fe-Al silicate)"],
+    ["","Black to dark green; H = 5 to 6; S.G. = 3.2 to 3.4; vitreous to dull luster; two imperfect cleavages meet at nearly 90°. Blocky, not splintery. A pyroxene.","<strong>Augite</strong> Ca-Mg-Fe silicate"],
     ["Three","Clear to gray to red; H = 2.5; S.G. = 2.2; three perfect cleavages meet at 90°; salty taste.","<strong>Halite</strong> NaCl"],
-    ["","Colorless or white; H = 3 to 3.5; S.G. = 4.5; heavy for a nonmetallic; tabular crystals or roselike array; three cleavages meet at 90°.","<strong>Barite</strong> BaSO₄"],
-    ["","Clear, white, less commonly other colors; vitreous luster; H = 3; S.G. = 2.7; cleavages form rhombic cleavage fragments; reacts strongly with dilute hydrochloric acid.","<strong>Calcite</strong> CaCO₃"],
-    ["","Buff, gray, white, pinkish; H = 3.5 to 4; S.G. = 2.8 to 2.9; small rhombohedral crystals or massive; three cleavages not at 90°; reacts slowly or not at all with dilute HCl unless powdered.","<strong>Dolomite</strong> CaMg(CO₃)₂"],
-    ["Four","Purple, green, blue, yellow, clear; H = 4; S.G. = 3.2; vitreous luster; perfect cleavage up to four directions yielding octahedral cleavage fragments; may occur as cubic crystals.","<strong>Fluorite</strong> CaF₂"],
+    ["","Colorless or white; H = 3 to 3.5; S.G. = 4.5; heavy for a nonmetallic; three cleavages meet at 90°.","<strong>Barite</strong> BaSO₄"],
+    ["","Clear, white, less commonly other colors; vitreous luster; H = 3; S.G. = 2.7; cleavages form rhombic fragments; reacts strongly with dilute hydrochloric acid.","<strong>Calcite</strong> CaCO₃"],
+    ["","Buff, gray, white, pinkish; H = 3.5 to 4; S.G. = 2.8 to 2.9; rhombohedral crystals or massive; three cleavages not at 90°; reacts slowly or not at all with dilute HCl unless powdered.","<strong>Dolomite</strong> CaMg(CO₃)₂"],
+    ["Four","Purple, green, blue, yellow, clear; H = 4; S.G. = 3.2; vitreous luster; perfect cleavage up to four directions yielding octahedral fragments; may occur as cubic crystals.","<strong>Fluorite</strong> CaF₂"],
    ]},
   {id:"2E",label:"2.2E — No cleavage, H > 5.5",
    title:"Table 2.2E — Nonmetallic Luster; Hardness Greater than 5.5; White/Whitish Streak; No Cleavage",
@@ -444,7 +456,7 @@ const TABLES = [
 let current = 0;
 let photoIdx = 0;
 const results = {};
-SAMPLES.forEach(s => { results[s.num] = {submitted:false, guess:"", correct:false, ws:{}, notes:""}; });
+SAMPLES.forEach(s=>{ results[s.num]={submitted:false,guess:"",correct:false,ws:{},notes:""}; });
 
 // ===================== TABS =====================
 function switchTab(id){
@@ -453,38 +465,39 @@ function switchTab(id){
   document.getElementById("tab-"+id).classList.add("active");
   if(id==="tables") renderTables();
 }
-window.switchTab = switchTab;
+window.switchTab=switchTab;
 
 // ===================== SAMPLE BAR =====================
 function buildSampleBar(){
-  const bar = document.getElementById("sample-bar");
-  bar.innerHTML = "";
+  const bar=document.getElementById("sample-bar");
+  bar.innerHTML="";
   SAMPLES.forEach((s,i)=>{
-    const b = document.createElement("button");
-    const r = results[s.num];
-    let cls = "sample-btn"+(i===current?" active":"");
-    if(r.submitted) cls += r.correct?" correct":" wrong";
-    b.className = cls;
-    b.textContent = s.num;
-    b.title = r.submitted ? s.name+" — "+(r.correct?"Correct ✓":"Incorrect ✗ (submitted: "+r.guess+")") : "Sample "+s.num;
-    b.onclick = () => { current=i; photoIdx=0; loadSample(); };
+    const b=document.createElement("button");
+    const r=results[s.num];
+    let cls="sample-btn"+(i===current?" active":"");
+    if(r.submitted) cls+=r.correct?" correct":" wrong";
+    b.className=cls;
+    b.textContent=s.num;
+    b.title=r.submitted?s.name+" — "+(r.correct?"Correct ✓":"Incorrect ✗ (submitted: "+r.guess+")"):"Sample "+s.num;
+    b.onclick=()=>{ current=i; photoIdx=0; loadSample(); };
     bar.appendChild(b);
   });
 }
 
 function updateProgress(){
-  const done = SAMPLES.filter(s=>results[s.num].submitted).length;
+  const done=SAMPLES.filter(s=>results[s.num].submitted).length;
   document.getElementById("prog-fill").style.width=(done/SAMPLES.length*100)+"%";
   document.getElementById("prog-label").textContent=done+" of "+SAMPLES.length+" samples attempted";
 }
 
 // ===================== LOAD SAMPLE =====================
 function loadSample(){
-  const s = SAMPLES[current];
-  const r = results[s.num];
+  const s=SAMPLES[current];
+  const r=results[s.num];
+  document.getElementById("sample-label").textContent="Sample "+s.num+" — "+s.name.replace(s.name,Array(s.name.length+1).join("?")).replace(/./g,"?").slice(0,3)+"…";
+  // hide name in label until submitted
   document.getElementById("sample-label").textContent="Sample "+s.num;
   switchPhoto(0);
-  // clear test results
   ["hardness-result","cleavage-result","streak-result","magnet-result","hcl-result","special-result"].forEach(id=>{
     const el=document.getElementById(id);
     el.className="rbox"; el.textContent=""; el.style.display="none";
@@ -492,28 +505,22 @@ function loadSample(){
   document.querySelectorAll(".tbtn").forEach(b=>b.classList.remove("revealed"));
   buildHardnessBtns();
   buildNameGrid();
-  // restore worksheet
-  const ws = r.ws;
   ["color","streak","luster","hardness","cleavage","fracture","form","special"].forEach(f=>{
     const el=document.getElementById("ws-"+f);
-    if(el){ el.value=ws[f]||""; el.disabled=r.submitted; }
+    if(el){ el.value=r.ws[f]||""; el.disabled=r.submitted; }
   });
   const notes=document.getElementById("ws-notes");
   if(notes){ notes.value=r.notes||""; notes.disabled=r.submitted; }
-  // grade button
   const btn=document.getElementById("btn-grade");
   btn.disabled=r.submitted;
   btn.textContent=r.submitted?"Submitted":"Submit identification";
-  // banner
   const banner=document.getElementById("grade-banner");
   if(r.submitted){
     banner.className="grade-banner show "+(r.correct?"pass":"fail");
-    if(r.correct){
-      banner.innerHTML="✅ Correct! This sample is <strong>"+s.name+"</strong>.";
-    } else {
-      banner.innerHTML="✗ Incorrect. You submitted <strong>"+r.guess+"</strong>. The correct answer is <strong>"+s.name+"</strong>. Review the property tests and consult the ID tables to understand why.";
-    }
-    document.getElementById("btn-next").style.display=(current<SAMPLES.length-1)?"inline-block":"none";
+    banner.innerHTML=r.correct
+      ?"✅ Correct! This sample is <strong>"+s.name+"</strong>."
+      :"✗ Incorrect. You submitted <strong>"+r.guess+"</strong>. The correct answer is <strong>"+s.name+"</strong>. Review the property tests and consult the ID tables to understand why.";
+    document.getElementById("btn-next").style.display=current<SAMPLES.length-1?"inline-block":"none";
   } else {
     banner.className="grade-banner"; banner.textContent="";
     document.getElementById("btn-next").style.display="none";
@@ -530,15 +537,16 @@ function switchPhoto(idx){
   img.style.display="block"; err.style.display="none";
   img.src=s.imgs[idx]||s.imgs[0];
   img.alt=s.name+" mineral sample";
-  document.getElementById("btn-img1").className="photo-toggle"+(idx===0?" active":"");
-  document.getElementById("btn-img2").className="photo-toggle"+(idx===1?" active":"");
+  img.onerror=function(){
+    this.style.display="none";
+    err.style.display="flex";
+  };
   document.getElementById("btn-img1").classList.toggle("active",idx===0);
   document.getElementById("btn-img2").classList.toggle("active",idx===1);
 }
 window.switchPhoto=switchPhoto;
 
 function buildHardnessBtns(){
-  const r=results[SAMPLES[current].num];
   const wrap=document.getElementById("hardness-btns");
   wrap.innerHTML="";
   [1,2,3,4,5,6,7,8,9,10].forEach(h=>{
@@ -619,18 +627,16 @@ function gradeID(){
     banner.textContent="Please select a mineral name before submitting.";
     return;
   }
-  // LOCK — one attempt only
   r.submitted=true;
   r.correct=(guess===s.name);
-  // lock worksheet
   ["color","streak","luster","hardness","cleavage","fracture","form","special"].forEach(f=>{
     const el=document.getElementById("ws-"+f);
     if(el) el.disabled=true;
   });
   const notes=document.getElementById("ws-notes");
   if(notes) notes.disabled=true;
-  document.getElementById("btn-grade").disabled=true;
-  document.getElementById("btn-grade").textContent="Submitted";
+  const btn=document.getElementById("btn-grade");
+  btn.disabled=true; btn.textContent="Submitted";
   if(r.correct){
     banner.className="grade-banner pass show";
     banner.innerHTML="✅ Correct! This sample is <strong>"+s.name+"</strong>.";
@@ -638,7 +644,7 @@ function gradeID(){
     banner.className="grade-banner fail show";
     banner.innerHTML="✗ Incorrect. You submitted <strong>"+guess+"</strong>. The correct answer is <strong>"+s.name+"</strong>. Review the property tests and the ID tables to understand why.";
   }
-  document.getElementById("btn-next").style.display=(current<SAMPLES.length-1)?"inline-block":"none";
+  document.getElementById("btn-next").style.display=current<SAMPLES.length-1?"inline-block":"none";
   buildNameGrid();
   buildSampleBar();
   updateProgress();
@@ -652,6 +658,7 @@ window.nextSample=nextSample;
 
 // ===================== ID TABLES =====================
 let activeTable="2A";
+
 function renderTables(searchTerm){
   const nav=document.getElementById("table-nav");
   nav.innerHTML="";
@@ -663,9 +670,8 @@ function renderTables(searchTerm){
     nav.appendChild(b);
   });
   const content=document.getElementById("table-content");
-  content.innerHTML="";
   const tbl=TABLES.find(t=>t.id===activeTable);
-  if(!tbl) return;
+  if(!tbl){ content.innerHTML=""; return; }
   const term=(searchTerm||"").toLowerCase().trim();
   let matchCount=0;
   let html=`<div class="table-title">${tbl.title}</div><div style="overflow-x:auto"><table class="id-table"><tr>`;
@@ -689,13 +695,11 @@ function renderTables(searchTerm){
   html+="</table></div>";
   content.innerHTML=html;
   const sc=document.getElementById("search-count");
-  if(term){ sc.textContent=matchCount+" match"+(matchCount!==1?"es":"")+" in this table"; }
-  else { sc.textContent=""; }
+  sc.textContent=term?(matchCount+" match"+(matchCount!==1?"es":"")+" in this table"):"";
 }
 
 function searchTables(){
-  const term=document.getElementById("table-search").value;
-  renderTables(term);
+  renderTables(document.getElementById("table-search").value);
 }
 window.searchTables=searchTables;
 
