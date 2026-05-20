@@ -237,7 +237,7 @@ function renderHList(){
     {h:5,mineral:"Apatite",note:"",tool:false},
     {h:5.5,mineral:"Glass plate",note:"Common field tool",tool:true},
     {h:6,mineral:"Orthoclase",note:"",tool:false},
-    {h:6.5,mineral:"Streak plate",note:"Field tool — hardness limit for streak tests",tool:true},
+    {h:6.5,mineral:"Streak plate",note:"Field tool,  hardness limit for streak tests",tool:true},
     {h:7,mineral:"Quartz",note:"",tool:false},
     {h:8,mineral:"Topaz",note:"",tool:false},
     {h:9,mineral:"Corundum",note:"",tool:false},
@@ -270,17 +270,17 @@ function sectionHTML(id){
 
 function introHTML(){
   const criteria=[
-    {label:"Naturally occurring",desc:"Forms by natural geologic processes — not made in a lab."},
+    {label:"Naturally occurring",desc:"Forms by natural geologic processes, not made in a lab."},
     {label:"Solid",desc:"Must be solid and crystalline at normal Earth conditions. Ice is a mineral; liquid water is not."},
     {label:"Orderly atomic structure",desc:"Atoms arranged in a repeating, predictable pattern. No pattern = amorphous (e.g., opal)."},
     {label:"Defined chemical composition",desc:"Each mineral has a unique formula, like quartz (SiO₂). Changing the ratio creates a different mineral."},
-    {label:"Typically inorganic",desc:"Not produced by living organisms — though carbonate minerals in shells are an exception."},
+    {label:"Typically inorganic",desc:"Not a living organism."},
   ];
   const quiz={q:"Which of these is a TRUE mineral?",opts:["Rock candy","Cubic zirconia","Halite (NaCl)","Olive oil"],ans:2,
-    expl:["Rock candy is crystalline sugar — organic and not naturally occurring geologically.",
+    expl:["Rock candy is crystalline sugar, organic and not naturally occurring geologically.",
           "Cubic zirconia is lab-made, failing the 'naturally occurring' criterion.",
           "Correct! Halite satisfies all five criteria: naturally occurring, solid, crystalline, defined formula (NaCl), and inorganic.",
-          "Olive oil is liquid and organic — fails multiple criteria."]};
+          "Olive oil is liquid and organic, fails multiple criteria."]};
   let h=`<div class="card"><h2>🪨 What is a mineral?</h2>
   <p class="intro">A mineral must satisfy all five criteria below. If even one is missing, it is not a true mineral.</p>`;
   criteria.forEach((c,i)=>{
@@ -293,17 +293,17 @@ function introHTML(){
 function lusterHTML(){
   const lusters=[
     {name:"Metallic",desc:"Looks like polished metal or a new coin.",example:"Pyrite, Galena, Magnetite",color:"#aaa"},
-    {name:"Vitreous / Glassy",desc:"Looks like broken glass — bright and sharp.",example:"Quartz, Fluorite",color:"#85B7EB"},
+    {name:"Vitreous / Glassy",desc:"Looks like broken glass, bright and sharp.",example:"Quartz, Fluorite",color:"#85B7EB"},
     {name:"Pearly / Silky",desc:"Soft sheen like the inside of a shell or silk fabric.",example:"Gypsum, Muscovite",color:"#e8b4c8"},
-    {name:"Earthy / Dull",desc:"No reflectivity — looks like dry soil or clay.",example:"Kaolinite, Limonite",color:"#c8b89a"},
-    {name:"Greasy / Waxy",desc:"Looks slick or melted — like a candle or cooking fat.",example:"Talc, Chalcedony",color:"#b8d89a"},
+    {name:"Earthy / Dull",desc:"No reflectivity, looks like dry soil or clay.",example:"Kaolinite, Limonite",color:"#c8b89a"},
+    {name:"Greasy / Waxy",desc:"Looks slick or melted,  like a candle or cooking fat.",example:"Talc, Chalcedony",color:"#b8d89a"},
   ];
   const quiz={q:"A mineral looks like a chunk of metal and reflects light like a new coin. What luster type is this?",
     opts:["Vitreous","Metallic","Pearly","Earthy"],ans:1,
     expl:["Vitreous luster looks like glass, not metal.","Correct! If it looks like a chunk of metal, it has metallic luster.",
-          "Pearly luster has a soft iridescent sheen — not a strong metallic reflection.","Earthy luster has no reflectivity at all."]};
+          "Pearly luster has a soft iridescent sheen,  not a strong metallic reflection.","Earthy luster has no reflectivity at all."]};
   let h=`<div class="card"><h2>✨ Luster</h2>
-  <p class="intro">Luster describes how light reflects off a mineral's surface. It is the first and most important step in mineral identification — always start here.</p>
+  <p class="intro">Luster describes how light reflects off a mineral's surface. It is the first and most important step in mineral identification - always start here.</p>
   <div class="grid2">`;
   lusters.forEach(l=>{
     h+=`<div class="lcard" style="border-top-color:${l.color}"><div class="lname">${l.name}</div><div class="ldesc">${l.desc}</div><div class="lexample">e.g. ${l.example}</div></div>`;
@@ -351,10 +351,10 @@ function hardnessHTML(){
   const quiz={q:"You scratch a mineral with your fingernail, no scratch. Then with a penny, the mineral powders! What is the hardness?",
     opts:["Less than 2.5","Between 2.5 and 3.5","Between 3.5 and 5.5","Greater than 5.5"],ans:1,
     expl:["If less than 2.5, your fingernail would have scratched it.",
-          "Correct! Resisted fingernail (2.5) but scratched by penny (3.5) — hardness is between those values.",
+          "Correct! Resisted fingernail (2.5) but scratched by penny (3.5),  hardness is between those values.",
           "If harder than 3.5, the penny wouldn't scratch it.","If harder than 5.5, even glass wouldn't scratch it."]};
   let h=`<div class="card"><h2>🔨 Hardness</h2>
-  <p class="intro">Hardness is a mineral's resistance to being <strong>scratched</strong> — NOT its resistance to breaking. Measured on the Mohs scale (1–10). A harder mineral always scratches a softer one. Drag the slider to explore the scale.</p>
+  <p class="intro">Hardness is a mineral's resistance to being <strong>scratched</strong>,  NOT its resistance to breaking. Measured on the Mohs scale (1–10). A harder mineral always scratches a softer one. Drag the slider to explore the scale.</p>
 
   <div class="section-divider">Mohs hardness decision flowchart</div>
   <div class="fc-wrap">
@@ -418,15 +418,15 @@ function streakHTML(){
     {mineral:"Hematite",surface:"Dark gray or metallic red",streak:"Red-brown (rust)",color:"#b5451b"},
     {mineral:"Pyrite",surface:"Brassy yellow (fool's gold)",streak:"Greenish gray-black",color:"#3a3a2a"},
     {mineral:"Magnetite",surface:"Black, metallic",streak:"Black",color:"#222"},
-    {mineral:"Calcite",surface:"White or colorless",streak:"White — non-diagnostic",color:"#e0e0e0"},
+    {mineral:"Calcite",surface:"White or colorless",streak:"White,  non-diagnostic",color:"#e0e0e0"},
   ];
   const quiz={q:"A mineral looks gold and metallic. Its streak is greenish gray-black. What is it most likely to be?",
     opts:["Gold","Pyrite","Hematite","Calcite"],ans:1,
     expl:["Real gold has a yellow streak matching its surface color and is very soft.",
-          "Correct! Pyrite (fool's gold) looks gold but leaves a greenish gray-black streak — a classic diagnostic test.",
+          "Correct! Pyrite (fool's gold) looks gold but leaves a greenish gray-black streak,  a classic diagnostic test.",
           "Hematite leaves a distinctive red-brown streak.","Calcite is white and non-metallic."]};
   let h=`<div class="card"><h2>✏️ Streak</h2>
-  <p class="intro">Streak is the color of a mineral's powder when rubbed on an unglazed porcelain streak plate. The powder color is often very different from the mineral's surface color — making streak a more reliable diagnostic property.</p>
+  <p class="intro">Streak is the color of a mineral's powder when rubbed on an unglazed porcelain streak plate. The powder color is often very different from the mineral's surface color,  making streak a more reliable diagnostic property.</p>
   <div class="streak-grid">`;
   examples.forEach(e=>{
     h+=`<div class="scard"><div class="smin">${e.mineral}</div><div class="ssurface">Surface: ${e.surface}</div>
@@ -471,19 +471,19 @@ function streakHTML(){
 function cleavageHTML(){
   const quiz={q:"A broken mineral forms perfect cubes no matter how you strike it. All break angles are 90°. How many cleavage planes does it have?",
     opts:["1 plane","2 planes at 90°","3 planes at 90°","No cleavage"],ans:2,
-    expl:["One plane produces flat sheets like mica — not cubes.",
-          "Two planes at 90° produce rectangular prisms (bricks) — not perfect cubes.",
-          "Correct! Three cleavage planes meeting at 90° produce cubic shapes — like Halite or Galena.",
+    expl:["One plane produces flat sheets like mica,  not cubes.",
+          "Two planes at 90° produce rectangular prisms (bricks),  not perfect cubes.",
+          "Correct! Three cleavage planes meeting at 90° produce cubic shapes,  like Halite or Galena.",
           "No cleavage produces irregular fracture surfaces, not cubes."]};
   let h=`<div class="card"><h2>💎 Cleavage &amp; fracture</h2>
   <p class="intro">Cleavage is the tendency of a mineral to break along flat, parallel planes of atomic weakness. Fracture is irregular breakage with no planar pattern. These are among the most diagnostic properties in mineral identification.</p>
-  <div class="tip" style="margin-bottom:12px">💡 A cleavage plane "winks" at you — when you rotate a mineral in light, a flat cleavage surface briefly flashes. Fracture surfaces look dull and irregular by comparison.</div>
+  <div class="tip" style="margin-bottom:12px">💡 A cleavage plane "winks" at you - when you rotate a mineral in light, a flat cleavage surface briefly flashes. Fracture surfaces look dull and irregular by comparison.</div>
 
   <div class="section-divider">Cleavage types reference table</div>
   <table class="cl-table">
     <tr><th>Planes &amp; angle</th><th>Cleavage type</th><th>Shape produced</th><th>Example mineral</th></tr>
-    <tr><td class="cl-planes">0 — fracture only</td><td>Conchoidal / irregular fracture</td><td>Scooped, glassy surfaces — no flat planes</td><td>Quartz</td></tr>
-    <tr><td class="cl-planes">1 plane</td><td>Basal cleavage</td><td>Flat sheets — like peeling pages of a book</td><td>Muscovite, Biotite mica</td></tr>
+    <tr><td class="cl-planes">0 - fracture only</td><td>Conchoidal / irregular fracture</td><td>Scooped, glassy surfaces - no flat planes</td><td>Quartz</td></tr>
+    <tr><td class="cl-planes">1 plane</td><td>Basal cleavage</td><td>Flat sheets - like peeling pages of a book</td><td>Muscovite, Biotite mica</td></tr>
     <tr><td class="cl-planes">2 planes at 90°</td><td>Prismatic (rectangular)</td><td>Rectangular blocks with right-angle corners</td><td>Feldspar group</td></tr>
     <tr><td class="cl-planes">2 planes not at 90°</td><td>Prismatic (parallelogram)</td><td>Angled parallelogram cross-section</td><td>Hornblende (Amphibole)</td></tr>
     <tr><td class="cl-planes">3 planes at 90°</td><td>Cubic cleavage</td><td>Perfect cubes and parts of cubes</td><td>Halite, Galena</td></tr>
@@ -543,7 +543,7 @@ function cleavageHTML(){
 function specialHTML(){
   const props=[
     {icon:"⚖️",name:"Specific gravity (heft)",desc:"Most minerals feel 'average' for their size. Very light minerals (Halite, SG 2.2) or very heavy minerals (Galena, SG 7.6) stand out immediately when placed in your palm."},
-    {icon:"🧲",name:"Magnetism",desc:"Very few minerals are naturally magnetic. Magnetite and pyrrhotite are strongly attracted to a magnet — a near-instant identification."},
+    {icon:"🧲",name:"Magnetism",desc:"Very few minerals are naturally magnetic. Magnetite and pyrrhotite are strongly attracted to a magnet, a near-instant identification."},
     {icon:"🧪",name:"Reaction to HCl acid",desc:"Carbonate minerals (especially Calcite, CaCO₃) fizz vigorously when a drop of dilute HCl is applied. CO₂ gas is released, producing visible bubbles."},
     {icon:"👁️",name:"Diaphaneity",desc:"How much light passes through: Transparent (image visible), Translucent (light but no clear image), or Opaque (no light). Most common minerals are opaque."},
     {icon:"🔷",name:"Crystal form / habit",desc:"When grown in open space, minerals form characteristic shapes. Garnet grows dodecahedrons. Pyrite grows cubes. Quartz grows prismatic columns. Crystal form is not the same as cleavage."},
@@ -644,10 +644,10 @@ function profileHTML(){
     <div class="tl-item"><span class="tl-num">4.</span>One sentence explaining HOW a physical property makes it useful</div>
   </div>
   <div class="example-box">
-    <div class="ex-title">Example — Halite (NaCl)</div>
+    <div class="ex-title">Example,  Halite (NaCl)</div>
     <div class="ex-line"><strong>Properties:</strong> Hardness 2.5, cubic cleavage, salty taste, soluble in water</div>
     <div class="ex-line"><strong>Uses:</strong> Table salt, road de-icing, food preservation, chemical feedstock</div>
-    <div class="ex-line"><strong>Connection:</strong> Its water solubility allows it to dissolve and distribute flavor or melt ice on contact — a direct result of the ionic bonding in its crystal structure.</div>
+    <div class="ex-line"><strong>Connection:</strong> Its water solubility allows it to dissolve and distribute flavor or melt ice on contact,  a direct result of the ionic bonding in its crystal structure.</div>
   </div>
   <div style="font-size:14px;font-weight:600;margin-bottom:10px">Complete your two profiles below:</div>`;
 
@@ -697,12 +697,12 @@ function exportWork(){
     {opts:["Silicates","Oxides","Carbonates","Sulfides"],ans:2},
   ];
 
-  let out=`MINERAL PROPERTIES LAB — SUBMISSION\n`;
+  let out=`MINERAL PROPERTIES LAB- SUBMISSION\n`;
   out+=`=====================================\n`;
   out+=`Student: ${name}\n`;
   out+=`Submitted: ${now}\n\n`;
 
-  out+=`SECTION 1: CHECK YOUR UNDERSTANDING — QUIZ ANSWERS\n`;
+  out+=`SECTION 1: CHECK YOUR UNDERSTANDING- QUIZ ANSWERS\n`;
   out+=`---------------------------------------------------\n`;
   qLabels.forEach((id,i)=>{
     const chosen=work.quizAnswers[id];
